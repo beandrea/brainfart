@@ -2,10 +2,12 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
+require("dotenv").config();
+
 const firebaseConfig = {
-    apiKey: "b1619359fa5fbb30114278c5330d350df5d41208",
-    authDomain: "fb-demo-a3e50.firebaseapp.com",
-    databaseURL: "https://fb-demo-a3e50.firebaseio.com",
+    apiKey: process.env.apiKey,
+    authDomain: "brainfart-83cc4.firebaseapp.com",
+    databaseURL: "https://brainfart-83cc4.firebaseio.com",
     projectId: "brainfart-83cc4",
     storageBucket: "brainfart-83cc4.appspot.com",
     messagingSenderId: "106322462222478724836",

@@ -3,12 +3,12 @@ import "firebase/auth";
 import "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDB_53k1uUFjbfLt_zTs4eT32yX77eZol0",
+    apiKey: "b1619359fa5fbb30114278c5330d350df5d41208",
     authDomain: "fb-demo-a3e50.firebaseapp.com",
     databaseURL: "https://fb-demo-a3e50.firebaseio.com",
-    projectId: "fb-demo-a3e50",
-    storageBucket: "fb-demo-a3e50.appspot.com",
-    messagingSenderId: "530808334788",
+    projectId: "brainfart-83cc4",
+    storageBucket: "brainfart-83cc4.appspot.com",
+    messagingSenderId: "106322462222478724836",
     appId: "1:530808334788:web:f5504cf15e5e6e88e95c91"
 };
 

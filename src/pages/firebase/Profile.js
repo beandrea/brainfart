@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 
-import UserContext from "../utils/userContext.js";
+import UserContext from "../../utils/userContext.js";
 
-import { auth } from "../utils/firebase";
+import { auth } from "../../utils/firebase";
 const ProfilePage = () => {
 
     const user = useContext(UserContext);

@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import UserContext from "../utils/userContext.js";
+import UserContext from "../../utils/userContext.js";
 
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
+import SignIn from "../SignIn";
+import SignUp from "./signup";
 
 import ProfilePage from "./ProfilePage";
-import PasswordReset from "./PasswordReset";
+import PasswordReset from "./passwordReset";
 
 function Application() {
     const user = useContext(UserContext);

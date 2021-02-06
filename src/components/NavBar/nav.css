@@ -1,0 +1,24 @@
+#logo {
+    width: 50px;
+}
+
+#navBar {
+    padding: 15px;
+    width: 100%;
+    align-items: center;
+}
+
+#navBar li {
+    margin-left: 20px;
+}
+
+#navBar li a{
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#searchBar button {
+    margin-left: 5px;
+}

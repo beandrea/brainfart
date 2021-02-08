@@ -14,26 +14,36 @@ function ProfileComponent() {
             </div>
             <div id="userInfoDiv" className="card">
                 <div className="card-body">
-                    <h5>My Stats</h5>
+                    <h3>My Stats</h3>
                 </div>
                 <div className="card infoCards">
-                    <div className="card-body">
-                        highest grade
+                    <h5>Highest Grade</h5>
+                    <div className="card-body quizGrades">
+                        <h6 className="quizName">Quiz Name:{ }</h6>
+                        <h6 id="grade">Grade:{ }</h6>
                     </div>
                 </div>
                 <div className="card infoCards">
-                    <div className="card-body">
-                        lowest grade
+                    <h5>Lowest Grade</h5>
+                    <div className="card-body quizGrades">
+                        <h6 className="quizName">Quiz Name:{ }</h6>
+                        <h6 id="grade">Grade:{ }</h6>
                     </div>
                 </div>
                 <div className="card infoCards">
-                    <div className="card-body">
-                        list of created
+                    <h5> My Created Quizes</h5>
+                    <div id="created" className="card-body">
+                        <h6 className="quizName">Quiz Name:{ }</h6>
+                        <div id="btns">
+                            <button className="createdBtns">Add</button>
+                            <button className="createdBtns">Edit</button>
+                        </div>
                     </div>
                 </div>
                 <div className="card infoCards">
+                    <h5>My Previous Quizes</h5>
                     <div className="card-body">
-                        list of previous quizes
+                        <h6 className="quizName">Quiz Name:{ }</h6>
                     </div>
                 </div>
             </div>

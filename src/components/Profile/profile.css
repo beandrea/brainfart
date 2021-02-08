@@ -9,7 +9,8 @@
 }
 
 #profilePic {
-    width: 30%;
+    width: 40%;
+    border-radius: 999px;
 }
 
 #usernameCard {
@@ -30,6 +31,24 @@
 
 .infoCards {
     margin: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.quizGrades {
+    display: flex;
+    justify-content: space-between;
+}
+
+.quizName {
+    text-align: left;
+}
+
+#created {
+    display: flex;
+    justify-content: space-between;
+}
+
+.createdBtns {
+    margin: 5px;
 }

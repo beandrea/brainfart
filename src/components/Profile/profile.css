@@ -1,7 +1,35 @@
 #profilePicCard {
     text-align: center;
+    margin-top: 50px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    background-color: rgb(169, 211, 193);
 }
 
 #profilePic {
     width: 30%;
+}
+
+#usernameCard {
+    border: 1px solid black;
+    width: 250px;
+    margin-bottom: 50px;
+    background-color: white;
+}
+
+#userInfoDiv {
+    text-align: center;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    background-color: rgb(144, 184, 167);
+}
+
+.infoCards {
+    margin: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
 }

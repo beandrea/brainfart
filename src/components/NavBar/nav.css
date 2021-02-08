@@ -7,6 +7,10 @@
     width: 100%;
     align-items: center;
     background-color: rgb(207, 184, 179);
+    box-shadow: 0px 0px 30px 1px;
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 #navBar li {

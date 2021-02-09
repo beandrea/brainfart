@@ -7,7 +7,7 @@ function ProfileComponent() {
             <div id="profilePicCard" className="card">
                 <div className="card-body">
                     <div id="usernameCard" className="card-body">
-                        <div id="usernameDisplay">Username Displayed Herei</div>
+                        <div id="usernameDisplay">Username Displayed Here</div>
                     </div>
                     <img id="profilePic" src="https://smhlancers.org/wp-content/uploads/2016/06/profile-placeholder.png" alt="profilepic"></img>
                 </div>

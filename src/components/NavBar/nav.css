@@ -1,9 +1,9 @@
 #logo {
-    width: 50px;
+    padding-top: 15px;
 }
 
 #navBar {
-    padding: 15px;
+    padding: 10px;
     width: 100%;
     align-items: center;
     background-color: rgb(207, 184, 179);
@@ -19,9 +19,14 @@
 
 #navBar li a{
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     font-size: 20px;
+    color: rgb(75, 120, 141);
+}
+
+#searchBar {
+    margin-left: auto !important;
 }
 
 #searchBar button {

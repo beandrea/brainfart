@@ -1,0 +1,64 @@
+#homePageDiv {
+    margin-top: 78px;
+}
+
+.welcomeSection {
+    display: flex;
+    height: 70vh;
+    background-color: cornflowerblue;
+}
+
+.welcomeLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 80px;
+    width: 50%;
+    height: 100%;
+}
+
+.welcomeLeft > h1, .welcomeLeft >p {
+    margin-bottom: 50px;
+}
+
+.button {
+    width: 120px;
+}
+
+.welcomeRight {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 600px) {
+
+}
+
+
+.cardSection {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    margin-bottom: 60px;
+}
+
+.cardSection > div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 70%;
+}
+
+/* .cardLeft {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    margin-bottom: 60px;
+}
+
+.cardRight {
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+} */

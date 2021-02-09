@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import "./nav.css";
+import SchoolIcon from '@material-ui/icons/School';
 
 function NavBar() {
     return (
         <div>
             <ul className="nav nav-tabs" id="navBar">
                 <li className="nav-item" title="Logo">
-                    <img id="logo" src="https://www.adaptivewfs.com/wp-content/uploads/2020/07/logo-placeholder-image.png" alt="logo"></img>
+                    <p id="logo">
+                        <SchoolIcon />
+                    </p>
                 </li>
                 <li className="nav-item" title="Home Page">
                     <Link to="/" >

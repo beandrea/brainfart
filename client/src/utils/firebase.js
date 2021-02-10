@@ -5,13 +5,14 @@ import "firebase/firestore";
 require("dotenv").config();
 
 const firebaseConfig = {
-    apiKey: process.env.apiKey,
-    authDomain: "brainfart-83cc4.firebaseapp.com",
-    databaseURL: "https://brainfart-83cc4.firebaseio.com",
-    projectId: "brainfart-83cc4",
-    storageBucket: "brainfart-83cc4.appspot.com",
-    messagingSenderId: "106322462222478724836",
-    appId: "1:530808334788:web:f5504cf15e5e6e88e95c91"
+  apiKey:  "AIzaSyDIxYkUsIoBTFs24-yTGbGsQM9qltj0NfE",
+  // apiKey: process.env.apiKey,
+  authDomain: "brainfart-83cc4.firebaseapp.com",
+  databaseURL: "https://brainfart-83cc4.firebaseio.com",
+  projectId: "brainfart-83cc4",
+  storageBucket: "brainfart-83cc4.appspot.com",
+  messagingSenderId: "996619792238",
+  appId: "1:996619792238:web:cd2a898554294ca2aa1b7f"
 };
 
 // Initialize Firebase

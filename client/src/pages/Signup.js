@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth, signInWithGoogle, generateUserDocument } from "../utils/firebase";
+import "./style/login.css"
+
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -12,9 +14,13 @@ const SignUp = () => {
     event.preventDefault();
     try{
       const {user} = await auth.createUserWithEmailAndPassword(email, password);
-      generateUserDocument(user, {displayName});
+      // generateUserDocument(user, {displayName});
+      console.log(user)
+
+      //post data to db
     }
     catch(error){
+      console.log(error)
       setError('Error Signing up with email and password');
     }
       
@@ -36,7 +42,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="mt-8">
+    <div className="mt-8 loginDiv">
       <h1 className="text-3xl mb-2 text-center font-bold">Sign Up</h1>
       <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
         {error !== null && (
@@ -45,7 +51,7 @@ const SignUp = () => {
           </div>
         )}
         <form className="">
-          <label htmlFor="displayName" className="block">
+          {/* <label htmlFor="displayName" className="block">
             Display Name:
           </label>
           <input
@@ -56,7 +62,7 @@ const SignUp = () => {
             placeholder="E.g: Faruq"
             id="displayName"
             onChange={event => onChangeHandler(event)}
-          />
+          /> */}
           <label htmlFor="userEmail" className="block">
             Email:
           </label>

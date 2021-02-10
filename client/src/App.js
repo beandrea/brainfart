@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar"
 import Home from "./pages/Home";
-import Profile from "./pages/firebase/Profile";
+import Profile from "./pages/Profile";
 import Footer from "./components/Footer/Footer";
 
 function App() {

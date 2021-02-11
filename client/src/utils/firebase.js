@@ -23,13 +23,12 @@ export const signupWithEmail = (email,password) => {
       .then((userCredential) => {
         // Signed in 
         var user = userCredential.user;
-        console.log(user)
-        // ...
-      })
-      .catch((error) => {
+        console.log(user);
+      }).catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
-        // ..
+        console.log(`Error code: ${errorCode}`);
+        console.log(`Error message: ${errorMessage}`);
       });
 }
 

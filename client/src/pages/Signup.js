@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth, signInWithGoogle, generateUserDocument } from "../utils/firebase";
 import "./style/login.css"
-import createUser from "../../../controller/userController";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -12,18 +11,17 @@ const SignUp = () => {
 
   const createUserWithEmailAndPasswordHandler = async (event, email, password) => {
     event.preventDefault();
-    try{
-      const {user} = await auth.createUserWithEmailAndPassword(email, password);
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(email, password);
       // generateUserDocument(user, {displayName});
       console.log(user);
-      createUser(user);
       //post data to db
     }
-    catch(error){
+    catch (error) {
       console.log(error);
       setError('Error Signing up with email and password');
     }
-      
+
     setEmail("");
     setPassword("");
     setDisplayName("");
@@ -50,45 +48,37 @@ const SignUp = () => {
             {error}
           </div>
         )}
-        <form className="">
-          {/* <label htmlFor="displayName" className="block">
-            Display Name:
-          </label>
-          <input
-            type="text"
-            className="my-1 p-1 w-full "
-            name="displayName"
-            value={displayName}
-            placeholder="E.g: Faruq"
-            id="displayName"
-            onChange={event => onChangeHandler(event)}
-          /> */}
-          <label htmlFor="userEmail" className="block">
-            Email:
-          </label>
-          <input
-            type="email"
-            className="my-1 p-1 w-full"
-            name="userEmail"
-            value={email}
-            placeholder="E.g: faruq123@gmail.com"
-            id="userEmail"
-            onChange={event => onChangeHandler(event)}
-          />
-          <label htmlFor="userPassword" className="block">
-            Password:
-          </label>
-          <input
-            type="password"
-            className="mt-1 mb-3 p-1 w-full"
-            name="userPassword"
-            value={password}
-            placeholder="Your Password"
-            id="userPassword"
-            onChange={event => onChangeHandler(event)}
-          />
+        <form className="formStyle">
+          <div className="formInput">
+            <label htmlFor="userEmail" className="formLabel">
+              Email:
+            </label>
+            <input
+              type="email"
+              className="my-1 p-1 w-full"
+              name="userEmail"
+              value={email}
+              placeholder="E.g: faruq123@gmail.com"
+              id="userEmail"
+              onChange={event => onChangeHandler(event)}
+            />
+          </div>
+          <div className="formInput">
+            <label htmlFor="userPassword" className="formLabel">
+              Password:
+            </label>
+            <input
+              type="password"
+              className="mt-1 mb-3 p-1 w-full"
+              name="userPassword"
+              value={password}
+              placeholder="Your Password"
+              id="userPassword"
+              onChange={event => onChangeHandler(event)}
+            />
+          </div>
           <button
-            className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
+            className="bg-green-400 hover:bg-green-500 w-full py-2 text-black"
             onClick={event => {
               createUserWithEmailAndPasswordHandler(event, email, password);
             }}
@@ -96,19 +86,6 @@ const SignUp = () => {
             Sign up
           </button>
         </form>
-        <p className="text-center my-3">or</p>
-        <button
-          onClick={() => {
-            try {
-              signInWithGoogle();
-            } catch (error) {
-              console.error("Error signing in with Google", error);
-            }
-          }}
-          className="bg-red-500 hover:bg-red-600 w-full py-2 text-white"
-        >
-          Sign In with Google
-        </button>
         <p className="text-center my-3">
           Already have an account?{" "}
           <Link to="/" className="text-blue-500 hover:text-blue-600">

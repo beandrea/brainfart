@@ -12,6 +12,11 @@ const UserSchema = new Schema({
         type: String,
         required: true,
         trim: true
+    },
+    firebaseId: {
+        type: String,
+        required: true,
+        trim: true
     }
 });
 

@@ -38,8 +38,6 @@ function generateUserObject(user) {
   const newUser = { email: user.email, firebaseId: user.uid };
   console.log(newUser);
   return axios.post("/api/user/", newUser)
-    .then((res) => console.log(res.json))
-    .catch((err) => console.log(err));
 }
 
 export const auth = firebase.auth();

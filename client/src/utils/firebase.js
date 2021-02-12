@@ -1,11 +1,12 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import axios from "axios";
 
 require("dotenv").config();
 
 const firebaseConfig = {
-  apiKey:  "AIzaSyDIxYkUsIoBTFs24-yTGbGsQM9qltj0NfE",
+  apiKey: "AIzaSyDIxYkUsIoBTFs24-yTGbGsQM9qltj0NfE",
   // apiKey: process.env.apiKey,
   authDomain: "brainfart-83cc4.firebaseapp.com",
   databaseURL: "https://brainfart-83cc4.firebaseio.com",
@@ -18,18 +19,27 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-export const signupWithEmail = (email,password) => {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Signed in 
-        var user = userCredential.user;
-        console.log(user);
-      }).catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(`Error code: ${errorCode}`);
-        console.log(`Error message: ${errorMessage}`);
-      });
+export const signupWithEmail = (email, password) => {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Signed in 
+      var user = userCredential.user;
+      console.log(user);
+      generateUserObject(user);
+    }).catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(`Error code: ${errorCode}`);
+      console.log(`Error message: ${errorMessage}`);
+    });
+}
+
+function generateUserObject(user) {
+  const newUser = { email: user.email, firebaseId: user.uid };
+  console.log(newUser);
+  return axios.post("/api/user/", newUser)
+    .then((res) => console.log(res.json))
+    .catch((err) => console.log(err));
 }
 
 export const auth = firebase.auth();
@@ -37,41 +47,41 @@ export const firestore = firebase.firestore();
 
 const provider = new firebase.auth.GoogleAuthProvider();
 export const signInWithGoogle = () => {
-    auth.signInWithPopup(provider);
+  auth.signInWithPopup(provider);
 };
 
 export const generateUserDocument = async (user, additionalData) => {
-    if (!user) return;
+  if (!user) return;
 
-    const userRef = firestore.doc(`users/${user.uid}`);
-    const snapshot = await userRef.get();
+  const userRef = firestore.doc(`users/${user.uid}`);
+  const snapshot = await userRef.get();
 
-    if (!snapshot.exists) {
-        const { email, displayName, photoURL } = user;
-        try {
-            await userRef.set({
-                displayName,
-                email,
-                photoURL,
-                ...additionalData
-            });
-        } catch (error) {
-            console.error("Error creating user document", error);
-        }
+  if (!snapshot.exists) {
+    const { email, displayName, photoURL } = user;
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        photoURL,
+        ...additionalData
+      });
+    } catch (error) {
+      console.error("Error creating user document", error);
     }
-    return getUserDocument(user.uid);
+  }
+  return getUserDocument(user.uid);
 };
 
 const getUserDocument = async uid => {
-    if (!uid) return null;
-    try {
-        const userDocument = await firestore.doc(`users/${uid}`).get();
+  if (!uid) return null;
+  try {
+    const userDocument = await firestore.doc(`users/${uid}`).get();
 
-        return {
-            uid,
-            ...userDocument.data()
-        };
-    } catch (error) {
-        console.error("Error fetching user", error);
-    }
+    return {
+      uid,
+      ...userDocument.data()
+    };
+  } catch (error) {
+    console.error("Error fetching user", error);
+  }
 };

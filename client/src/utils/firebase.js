@@ -25,19 +25,12 @@ export const signupWithEmail = (email, password) => {
       // Signed in 
       var user = userCredential.user;
       console.log(user);
-      generateUserObject(user);
     }).catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
       console.log(`Error code: ${errorCode}`);
       console.log(`Error message: ${errorMessage}`);
     });
-}
-
-function generateUserObject(user) {
-  const newUser = { email: user.email, firebaseId: user.uid };
-  console.log(newUser);
-  return axios.post("/api/user/", newUser)
 }
 
 export const auth = firebase.auth();

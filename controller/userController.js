@@ -8,7 +8,7 @@ module.exports = {
         // if succesful us route to create method
         db.User.create(req.body).then(dbModel => res.JSON(dbModel)).catch(err => console.log(err));
     },
-    getUser: (req, res) => {
+    getUser: function (req, res) {
         db.User.find(req.params.id).then(dbModel => res.JSON(dbModel)).catch(err => console.log(err));
     }
 };

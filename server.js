@@ -22,7 +22,7 @@ useUnifiedTopology: true,
 useCreateIndex: true});
 
 // Use apiRoutes
-app.use(apiRoutes);
+app.use("/api",apiRoutes);
 
 
 // Send every request to the React app

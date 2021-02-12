@@ -1,3 +1,17 @@
 .loginDiv {
     margin-top: 120px;
 }
+
+.formStyle {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.formInput {
+    width: 300px;
+}
+
+.formLabel {
+    margin-right: 10px;
+}

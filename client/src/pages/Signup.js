@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth, signInWithGoogle, generateUserDocument } from "../utils/firebase";
 import "./style/login.css"
-
+import createUser from "../../../controller/userController";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -15,12 +15,12 @@ const SignUp = () => {
     try{
       const {user} = await auth.createUserWithEmailAndPassword(email, password);
       // generateUserDocument(user, {displayName});
-      console.log(user)
-
+      console.log(user);
+      createUser(user);
       //post data to db
     }
     catch(error){
-      console.log(error)
+      console.log(error);
       setError('Error Signing up with email and password');
     }
       

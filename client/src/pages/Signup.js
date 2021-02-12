@@ -40,6 +40,7 @@ const SignUp = () => {
       setPassword(value);
     } else if (name === "displayName") {
       setDisplayName(value);
+      console.log(displayName);
     }
   };
 

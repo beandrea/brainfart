@@ -16,7 +16,7 @@ function HomeComponent() {
                         // className="button btn btn-primary"
                         // onClick={() =>{}}>Get Started */}
                     </div>
-                    <img className="welcomeRight" src="https://images.squarespace-cdn.com/content/v1/57a34fcde6f2e10d061bc16b/1487861810473-3H8Y9BIGJWT4Z4SOWYNC/ke17ZwdGBToddI8pDm48kDVYnQx84rzrm2qQOUd7Sy17gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UY8mqlSYPG-nmIUWpJc006SuQyuTTLGA4klG9-z6Yewc3-7Z7Bn97rMKff5yJsS8Lw/machine-learning-smart-brain-wallpaper-1920x1200.jpg?format=2500w"></img>
+                    <img className="welcomeRight" alt="welcome" src="https://images.squarespace-cdn.com/content/v1/57a34fcde6f2e10d061bc16b/1487861810473-3H8Y9BIGJWT4Z4SOWYNC/ke17ZwdGBToddI8pDm48kDVYnQx84rzrm2qQOUd7Sy17gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UY8mqlSYPG-nmIUWpJc006SuQyuTTLGA4klG9-z6Yewc3-7Z7Bn97rMKff5yJsS8Lw/machine-learning-smart-brain-wallpaper-1920x1200.jpg?format=2500w"></img>
                 </div>
 
                 <div className="cardSection">

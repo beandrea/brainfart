@@ -26,9 +26,9 @@ const SignUp = () => {
       setError('Error Signing up with email and password');
     }
 
-    // setEmail("");
-    // setPassword("");
-    // setDisplayName("");
+    setEmail("");
+    setPassword("");
+    setDisplayName("");
   };
 
   const onChangeHandler = event => {

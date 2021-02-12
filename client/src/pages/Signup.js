@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../utils/firebase";
-import "./style/login.css"
+import "./style/login.css";
+import axios from "axios"
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -15,6 +16,9 @@ const SignUp = () => {
       const { user } = await auth.createUserWithEmailAndPassword(email, password);
       // generateUserDocument(user, {displayName});
       console.log(user);
+      console.log(user.email);
+      const newUser = { email: user.email, firebaseId: user.uid };
+       return axios.post("/api/user/", newUser)
       //post data to db
     }
     catch (error) {
@@ -36,6 +40,7 @@ const SignUp = () => {
       setPassword(value);
     } else if (name === "displayName") {
       setDisplayName(value);
+      console.log(displayName);
     }
   };
 

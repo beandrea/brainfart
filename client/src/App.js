@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
+import Category from "./pages/Category"
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/category" component={Category} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/signin" component={Signin} />
           </Switch>

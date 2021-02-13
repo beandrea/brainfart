@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from "../Card/Card"
+import "./category.css";
 
 
 function CategoryComponent() {
@@ -9,7 +10,7 @@ function CategoryComponent() {
                 <div className="container">
                     <h1 className="display-4">Category</h1>
                     <div className="cardSection">
-                    <div>
+                    <div className="cards">
                         <Card image = {"..."} title = {"Test Subject"} href = {"#"}/> 
                         <Card image = {"..."} title = {"Test Subject"} href = {"#"}/> 
                         <Card image = {"..."} title = {"Test Subject"} href = {"#"}/> 

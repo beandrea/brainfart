@@ -1,0 +1,14 @@
+.jumbotron{
+    margin-top:80px;
+}
+
+h1{
+    display:flex;
+    justify-content: center;
+}
+
+.cards{
+    flex-direction: column;
+    display: flex;
+    align-items: left;
+}

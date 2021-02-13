@@ -10,14 +10,16 @@ function CompSci() {
     }, []);
 
     function getQuizzes() {
-        API.getQuiz(18).then(res => {setCs(res.json)});
+        API.getQuiz(18).then(res => {
+            setCs(res.data)
+        });
         console.log(cs);
     }
 
     return (
         <div className="spaceout">
             <div className="quiz">
-
+                quiz comp
             </div>
         </div>
     )

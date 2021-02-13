@@ -1,5 +1,7 @@
 const db = require("../models/quiz");
 
+const https = "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple";
+
 module.exports = {
     //finding all quizes
     findAll: function (req, res) {

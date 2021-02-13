@@ -2,6 +2,7 @@ import React from 'react';
 import "./home.css";
 import Card from "../Card/Card";
 import SignUpBtn from "../Button/SignUpBtn"
+import { Link } from 'react-router-dom';
 
 function HomeComponent() {
     return (
@@ -21,14 +22,13 @@ function HomeComponent() {
 
                 <div className="cardSection">
                     <div>
-                        <Card image = {"..."} title = {"Test Subject"} href = {"#"}/> 
-                        <Card image = {"..."} title = {"Test Subject"} href = {"#"}/> 
-                        <Card image = {"..."} title = {"Test Subject"} href = {"#"}/> 
-                        <Card image = {"..."} title = {"Test Subject"} href = {"#"}/> 
-                        <Card image = {"..."} title = {"Test Subject"} href = {"#"}/> 
-                        <Card image = {"..."} title = {"Test Subject"} href = {"#"}/> 
-                        <Card image = {"..."} title = {"Test Subject"} href = {"#"}/> 
-                        <Card image = {"..."} title = {"Test Subject"} href = {"#"}/> 
+                        <Link to = "/math"><Card image = {"..."} title = {"Math"}/></Link>
+                        <Link to = "/science"><Card image = {"..."} title = {"Science"}/></Link> 
+                        <Link to = "/history"><Card image = {"..."} title = {"History"}/></Link>
+                        <Link to = "/compSci"><Card image = {"..."} title = {"Computer Science"}/></Link>
+                        <Link to = "/english"><Card image = {"..."} title = {"English"}/> </Link>
+                        <Link to = "/spanish"><Card image = {"..."} title = {"Spanish"}/></Link>
+                        <Link to = "/geography"><Card image = {"..."} title = {"Geography"}/></Link>
                     </div>
                 </div>
             </div>

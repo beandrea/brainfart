@@ -5,6 +5,7 @@ module.exports = {
     //finding all quizes
     findAll: function (req, res) {
         axios.get(`https://opentdb.com/api.php?amount=10&category=${req.params}&difficulty=easy&type=multiple`).then(data => {console.log(data.data)});
+        res.json(data.data);
     },
     //finding specific quiz
     findById: function (req, res) {

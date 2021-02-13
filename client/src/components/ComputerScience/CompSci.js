@@ -3,10 +3,7 @@ import "./compSci.css";
 import API from "../../utils/API";
 
 function CompSci() {
-    const [cs, setCs] = useState({
-        question: "",
-        answers: ""
-    });
+    const [cs, setCs] = useState([]);
 
     useEffect(() => {
         getQuizzes()
@@ -14,7 +11,7 @@ function CompSci() {
 
     function getQuizzes() {
         API.getQuiz(18).then(res => {
-            setCs(question= res.data.question)
+            setCs(res.data)
         });
         console.log(cs.catagory);
     }

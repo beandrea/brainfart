@@ -32,6 +32,47 @@ export const signupWithEmail = (email, password) => {
     });
 }
 
+firebase.auth().onAuthStateChanged((user) => {
+  console.log(user)
+  if (user) {
+      console.log("true")
+    // var uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
+export const signOut = () => {
+  firebase.auth().signOut();
+}
+
+export const isSignedIn = () => {
+  const auth = firebase.auth();
+  if (auth.currentUser !== null) {
+    const uid = auth.currentUser.uid
+    return console.log("user is signed in")
+  }
+  else {
+    window.location.href = "/signin"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 

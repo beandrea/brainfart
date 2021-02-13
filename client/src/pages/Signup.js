@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../utils/firebase";
+import { auth, isSignedIn } from "../utils/firebase";
 import "./style/login.css";
 import axios from "axios"
 
@@ -17,11 +17,7 @@ const SignUp = () => {
     try {
       userInfo  = await auth.createUserWithEmailAndPassword(email, password);
       // generateUserDocument(user, {displayName});
-      console.log(userInfo);
-      console.log(userInfo.user.email);
-      // this.useEffect(() => {
-      //   setUser(user);
-      // })
+    
       const newUser = { email: userInfo.user.email, firebaseId: userInfo.user.uid };
       return axios.post("/api/user/", newUser)
     }
@@ -32,9 +28,10 @@ const SignUp = () => {
     finally {
       console.log("test")
       console.log(userInfo)
-      if(userInfo.user.uid) {
-        window.location.href = "/"
-      }
+      isSignedIn()
+      // if(userInfo.user.uid) {
+      //   window.location.href = "/"
+      // }
     }
 
     setEmail("");

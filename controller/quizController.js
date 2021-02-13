@@ -1,14 +1,11 @@
 const db = require("../models/quiz");
-
-const https = "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple";
+const {default : axios} = require("axios");
 
 module.exports = {
     //finding all quizes
     findAll: function (req, res) {
-        db.Quiz
-            .find(req.query)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err))
+        axios.get(`https://opentdb.com/api.php?amount=10&category=${req.params}&difficulty=easy&type=multiple`).then(data => {console.log(data.data)});
+        res.json(data.data);
     },
     //finding specific quiz
     findById: function (req, res) {

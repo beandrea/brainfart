@@ -1,4 +1,3 @@
-  
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
@@ -22,7 +21,7 @@ useUnifiedTopology: true,
 useCreateIndex: true});
 
 // Use apiRoutes
-app.use("/api",apiRoutes);
+app.use(apiRoutes);
 
 
 // Send every request to the React app

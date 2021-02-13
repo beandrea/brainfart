@@ -18,7 +18,7 @@ const SignUp = () => {
       console.log(user);
       console.log(user.email);
       const newUser = { email: user.email, firebaseId: user.uid };
-       return axios.post("/api/user/", newUser)
+      return axios.post("/api/user/", newUser)
       //post data to db
     }
     catch (error) {

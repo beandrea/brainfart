@@ -80,7 +80,7 @@ function CompSci() {
                                 {quiz.answers.map(allAnswers => (
                                     <div>
                                         <input id="testing" type="radio" className="answers" onClick={chosenAnswer} value={allAnswers} name={quiz.question} />
-                                        <label for="testing">{allAnswers}</label>
+                                        <label>{allAnswers}</label>
                                     </div>
                                 ))}
                             </form>

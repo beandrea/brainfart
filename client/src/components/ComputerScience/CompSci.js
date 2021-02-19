@@ -4,16 +4,56 @@ import API from "../../utils/API";
 
 function CompSci() {
     const [cs, setCs] = useState([]);
+    
 
     useEffect(() => {
         getQuizzes()
     }, []);
 
+    const decodeText = (text) => {
+        if (!text || !text.replace) {
+            return text;
+        }
+        const decodedText = text.replace(/:!_amp_:/g, '&')
+        .replace(/&quot;/g, '"')
+        .replace(/&#039;/g, "'")
+        .replace(/&apos;/g, "'")
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/<br>/g, '\n')
+        .replace(/<br \/>/g, '\n')
+        .replace(/<br\/>/g, '\n')
+        return decodedText;
+    }
+
     function getQuizzes() {
         API.getQuiz(18).then(res => {
-            setCs(res.data)
+            console.log(res)
+            
+            let quiz = res.data.map( (obj) => {
+                var answers = [obj.correct_answer,...obj.incorrect_answers]
+                var randomA = []
+                for(let n = answers.length; n > 0; n--) {
+                    let i = Math.floor(Math.random() * answers.length)
+                    
+                    let ans = decodeText(answers[i])
+
+                    randomA.push(ans);
+                    answers.splice(i,1)
+                }
+                let newObj = {
+                    question: decodeText(obj.question),
+                    answers: randomA,
+                    correctAnswer: decodeText(obj.correct_answer)
+                }
+                return newObj
+            })
+
+            console.log(quiz)
+
+
+            setCs(quiz)
         });
-        console.log(cs.catagory);
     }
 
 
@@ -21,10 +61,10 @@ function CompSci() {
         <div className="spaceout">
             <div className="quiz">
                 {cs.map(quiz => (
-                    <div className="card" key={quiz.correct_answer}>
+                    <div className="card" key={quiz.correctAnswer}>
                         <div className="card-body">
                             <h3>{quiz.question}</h3>
-                            <h4>{quiz.incorrect_answers}{quiz.correct_answer}</h4>
+                            <h4>{quiz.answers.join(", ")}</h4>
                         </div>
                     </div>
                 ))}

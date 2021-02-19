@@ -23,13 +23,13 @@ function HomeComponent() {
 
                 <div className="cardSection">
                     <div>
-                        <Link to = "/math"><Card image = {images[0].image} title = {"Math"}/></Link>
-                        <Link to = "/science"><Card image = {images[1].image} title = {"Science"}/></Link> 
-                        <Link to = "/history"><Card image = {images[2].image} title = {"History"}/></Link>
-                        <Link to = "/compSci"><Card image = {images[3].image} title = {"Computer Science"}/></Link>
-                        <Link to = "/english"><Card image = {images[4].image} title = {"English"}/> </Link>
-                        <Link to = "/spanish"><Card image = {images[5].image} title = {"Spanish"}/></Link>
-                        <Link to = "/geography"><Card image = {images[6].image} title = {"Geography"}/></Link>
+                        {/* <Link to = "/quiz/math"><Card image = {images[0].image} title = {"Math"}/></Link> */}
+                        <Link to = "/quiz/science"><Card image = {images[1].image} title = {"Science"}/></Link> 
+                        <Link to = "/quiz/history"><Card image = {images[2].image} title = {"History"}/></Link>
+                        <Link to = "/quiz/compSci"><Card image = {images[3].image} title = {"Computer Science"}/></Link>
+                        <Link to = "/quiz/sports"><Card image = {images[4].image} title = {"sports"}/> </Link>
+                        <Link to = "/quiz/mythology"><Card image = {images[5].image} title = {"mythology"}/></Link>
+                        <Link to = "/quiz/geography"><Card image = {images[6].image} title = {"Geography"}/></Link>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,8 @@
 .spaceout {
     margin-top: 100px;
+    margin-bottom: 80px;
+}
+
+.answers {
+    cursor: pointer;
 }

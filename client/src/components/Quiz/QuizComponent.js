@@ -89,6 +89,7 @@ function CompSci(props) {
         }
 
         alert(score);
+        window.location.href = "/"
     }
 
     return (

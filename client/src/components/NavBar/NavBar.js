@@ -29,7 +29,7 @@ function NavBar() {
                 </li>
                 <li className="nav-item" title="Search" id="searchBar">
                     <form>
-                        <input type="search" placeholder="Search"></input>
+                        <input style={{borderRadius:"10px"}} type="search" placeholder="Search"></input>
                         <button className="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </li>

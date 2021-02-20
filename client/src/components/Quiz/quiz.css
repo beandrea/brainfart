@@ -1,8 +1,12 @@
 .spaceout {
-    margin-top: 100px;
+    margin-top: 150px;
     margin-bottom: 80px;
 }
 
 .answers {
     cursor: pointer;
+}
+
+#quizContainer{
+    margin-top: 50px;
 }

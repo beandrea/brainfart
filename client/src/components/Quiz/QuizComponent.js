@@ -95,6 +95,7 @@ function CompSci(props) {
         <div className="spaceout">
             <div className="quiz">
                 {cs.map(quiz => (
+                    <div className="container" id="quizContainer">
                     <div className="card" key={quiz.correctAnswer}>
                         <div className="card-body">
                             <h3>{quiz.question}</h3>
@@ -107,6 +108,7 @@ function CompSci(props) {
                                 ))}
                             </form>
                         </div>
+                    </div>
                     </div>
                 ))}
 

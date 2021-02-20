@@ -8,15 +8,20 @@ const UserSchema = new Schema({
         required: true,
         trim: true
     },
-    // password: {
-    //     type: String,
-    //     required: true,
-    //     trim: true
-    // },
     firebaseId: {
         type: String,
         required: true,
         trim: true
+    },
+    userScores: {
+        scores: {
+            result: {
+                type: Number
+            },
+            quizName: {
+                type: String
+            }
+        }
     }
 });
 

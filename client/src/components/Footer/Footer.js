@@ -4,7 +4,7 @@ import "./footer.css";
 function Footer() {
     return (
         <div id="footer">
-            Brain Fart 2021
+            Brain Fart © 2021
         </div>
     )
 }

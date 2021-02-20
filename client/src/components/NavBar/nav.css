@@ -6,11 +6,12 @@
     padding: 10px;
     width: 100%;
     align-items: center;
-    background-color: rgb(207, 184, 179);
+    background-color: rgb(88, 22, 126);
     box-shadow: 0px 0px 30px 1px;
     position: fixed;
     top: 0;
     z-index: 1;
+    border-bottom:none;
 }
 
 #navBar li {
@@ -22,7 +23,7 @@
     font-weight: 700;
     cursor: pointer;
     font-size: 20px;
-    color: rgb(75, 120, 141);
+    color: white;
 }
 
 #searchBar {
@@ -31,4 +32,5 @@
 
 #searchBar button {
     margin-left: 5px;
+    border-radius: 12px;
 }

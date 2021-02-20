@@ -87,9 +87,9 @@ function CompSci(props) {
                 score += 10;
             }
         }
+        API.submitQuiz(score, reqParam).then(res => {console.log(res)});
 
-        alert(score);
-        window.location.href = "/"
+        setTimeout(function(){ window.location.href = "/" }, 3000);
     }
 
     return (

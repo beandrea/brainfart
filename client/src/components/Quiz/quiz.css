@@ -1,8 +1,27 @@
 .spaceout {
-    margin-top: 100px;
+    margin-top: 150px;
     margin-bottom: 80px;
 }
 
 .answers {
     cursor: pointer;
+}
+
+#quizContainer{
+    margin-top: 50px;
+}
+
+#questions{
+    border-color:black;
+    border-radius: 15px;
+    margin:20px;
+}
+
+
+
+.endQuiz{
+    position:relative;
+    left: 45%;
+    right: 50%;
+    width:150px;
 }

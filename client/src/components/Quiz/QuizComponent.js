@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import "./compSci.css";
+import "./quiz.css";
 import API from "../../utils/API";
 
-function CompSci() {
+function CompSci(props) {
+
+    const reqParam = props.match.params.id
+
     const [cs, setCs] = useState([]);
 
 
@@ -14,7 +17,7 @@ function CompSci() {
         if (!text || !text.replace) {
             return text;
         }
-        const decodedText = text.replace(/:!_amp_:/g, '&')
+        const decodedText = text.replace(/&amp;/g, '&')
             .replace(/&quot;/g, '"')
             .replace(/&#039;/g, "'")
             .replace(/&apos;/g, "'")
@@ -27,33 +30,38 @@ function CompSci() {
     }
 
     function getQuizzes() {
-        API.getQuiz(18).then(res => {
+        API.getQuiz(reqParam).then(res => {
             console.log(res)
 
-            let quiz = res.data.map((obj) => {
-                var answers = [obj.correct_answer, ...obj.incorrect_answers]
-                var randomA = []
-                for (let n = answers.length; n > 0; n--) {
-                    let i = Math.floor(Math.random() * answers.length)
-
-                    let ans = decodeText(answers[i])
-
-                    randomA.push(ans);
-                    answers.splice(i, 1)
-                }
-                let newObj = {
-                    question: decodeText(obj.question),
-                    answers: randomA,
-                    correctAnswer: decodeText(obj.correct_answer)
-                }
-
-                return newObj
-            })
-
-            console.log(quiz)
-
-
-            setCs(quiz)
+            if (res.data.length > 0) {
+                let quiz = res.data.map((obj) => {
+                    var answers = [obj.correct_answer, ...obj.incorrect_answers]
+                    var randomA = []
+                    for (let n = answers.length; n > 0; n--) {
+                        let i = Math.floor(Math.random() * answers.length)
+    
+                        let ans = decodeText(answers[i])
+    
+                        randomA.push(ans);
+                        answers.splice(i, 1)
+                    }
+                    let newObj = {
+                        question: decodeText(obj.question),
+                        answers: randomA,
+                        correctAnswer: decodeText(obj.correct_answer)
+                    }
+    
+                    return newObj
+                })
+                
+                console.log(quiz)
+               
+                setCs(quiz)
+            }
+            else {
+                console.log("checking for user quiz")
+                ///check table for user quizes
+            }
         });
     }
 
@@ -67,7 +75,6 @@ function CompSci() {
             }
         }
     }
-
 
     return (
         <div className="spaceout">

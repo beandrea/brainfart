@@ -7,7 +7,7 @@ import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import Category from "./pages/Category"
 import Footer from "./components/Footer/Footer";
-import CompSci from './components/ComputerScience/CompSci'
+import Quiz from './components/Quiz/QuizComponent'
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
             <Route exact path="/category" component={Category} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/signin" component={Signin} />
-            <Route exact path = "/compSci" component={CompSci}/>
+            <Route path = "/quiz/:id" component={Quiz}/>
           </Switch>
         </div>
       </Router>

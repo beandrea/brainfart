@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import "./nav.css";
 import SchoolIcon from '@material-ui/icons/School';
+import { signOut } from "../../utils/firebase";
+
 
 function NavBar() {
     return (
@@ -26,6 +28,9 @@ function NavBar() {
                     <Link to ="/create">
                         Create A Quiz
                     </Link>
+                </li>
+                <li className="nav-item" title="Create a Quiz">
+                    <button onClick={signOut}>Sign Out</button>
                 </li>
                 <li className="nav-item" title="Search" id="searchBar">
                     <form>

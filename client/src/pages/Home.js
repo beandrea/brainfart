@@ -1,12 +1,13 @@
 import React from 'react';
 import HomeComponent from "../components/Home/HomeComponent";
-import { isSignedIn, signOut } from "../utils/firebase";
+import { isSignedIn, getUserId } from "../utils/firebase";
 
 
 function Home() {
     
-    // signOut()
     isSignedIn()
+
+    console.log(getUserId())
 
     return (
         <div>

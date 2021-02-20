@@ -32,17 +32,23 @@ export const signupWithEmail = (email, password) => {
     });
 }
 
-firebase.auth().onAuthStateChanged((user) => {
-  console.log(user)
-  if (user) {
-      console.log("true")
-    // var uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
+// firebase.auth().onAuthStateChanged((user) => {
+//   console.log(user)
+//   if (user) {
+//       // console.log("true")
+//     console.log("user is signed in")
+
+//       // window.location.href = "/signin"
+//   } else {
+//     const page = window.location.pathname
+//     console.log(page)
+//     if (page !== "/signin") {
+//       window.location.href = "/signin"
+//     }
+//     console.log("user is signed out")
+//   }
+// });
+
 
 export const signOut = () => {
   firebase.auth().signOut();
@@ -50,13 +56,20 @@ export const signOut = () => {
 
 export const isSignedIn = () => {
   const auth = firebase.auth();
+  console.log(auth.currentUser)
   if (auth.currentUser !== null) {
-    const uid = auth.currentUser.uid
+    // const uid = auth.currentUser.uid
     return console.log("user is signed in")
   }
   else {
     window.location.href = "/signin"
+    console.log("user is signed out")
   }
+}
+
+export const getUserId = () => {
+  const auth = firebase.auth();
+  return auth.currentUser.uid
 }
 
 

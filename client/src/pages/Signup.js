@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { auth, isSignedIn } from "../utils/firebase";
+import { auth } from "../utils/firebase";
 import "./style/login.css";
 import axios from "axios"
 
@@ -28,7 +28,7 @@ const SignUp = () => {
     finally {
       console.log("test")
       console.log(userInfo)
-      isSignedIn()
+      // isSignedIn()
       // if(userInfo.user.uid) {
       //   window.location.href = "/"
       // }

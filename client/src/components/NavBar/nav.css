@@ -1,7 +1,10 @@
 #logo {
     padding-top: 15px;
+    color: white;
 }
-
+#power{
+    color: white;
+}
 #navBar {
     padding: 10px;
     width: 100%;

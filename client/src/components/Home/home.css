@@ -6,7 +6,7 @@
 
 .welcomeSection {
     display: flex;
-    height: 70vh;
+    height: 65vh;
     background-color: rgb(155, 122, 216);
 
 }
@@ -41,6 +41,7 @@
 
 
 .cardSection {
+    background-color: rgb(218, 198, 255);
     display: flex;
     justify-content: center;
     height: auto;

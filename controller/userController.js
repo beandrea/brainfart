@@ -10,7 +10,9 @@ module.exports = {
             .catch(err => console.log(err));
     },
     getUser: function(req, res) {
-        db.User.find(req.params.id).then(dbModel => res.json(dbModel)).catch(err => console.log(err));
+        db.findOne({ firebaseId: req.params.id })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => console.log(err));
     },
     createResult: function(req, res) {
         db.findOneAndUpdate({ firebaseId: req.params.id }, req.body)

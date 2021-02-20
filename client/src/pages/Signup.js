@@ -26,9 +26,6 @@ const SignUp = () => {
       setError('Error Signing up with email and password');
     }
     finally {
-      console.log("test")
-      console.log(userInfo)
-      // isSignedIn()
       if(userInfo.user.uid) {
         window.location.href = "/"
       }

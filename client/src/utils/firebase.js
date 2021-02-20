@@ -33,7 +33,6 @@ export const signupWithEmail = (email, password) => {
 }
 
 firebase.auth().onAuthStateChanged((user) => {
-  console.log(user)
   if (user) {
       // console.log("true")
     console.log("user is signed in")
@@ -55,7 +54,6 @@ export const signOut = () => {
 
 export const isSignedIn = () => {
   const auth = firebase.auth();
-  console.log(auth.currentUser)
   if (auth.currentUser !== null) {
     // const uid = auth.currentUser.uid
     return console.log("user is signed in")

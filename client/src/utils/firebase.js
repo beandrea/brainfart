@@ -34,35 +34,31 @@ export const signupWithEmail = (email, password) => {
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-      // console.log("true")
-    console.log("user is signed in")
-    // window.location.href = "/"
+    localStorage.setItem('isSignedIn', 'true')
   } else {
-    // const page = window.location.pathname
-    // console.log(page)
-    // if (page !== "/signin") {
-    //   window.location.href = "/signin"
-    // }
-    // console.log("user is signed out")
+    localStorage.setItem('isSignedIn', 'false')
+    const page = window.location.pathname
+    if (page !== "/signin") {
+      window.location.href = "/signin"
+    }
   }
 });
-
 
 export const signOut = () => {
   firebase.auth().signOut();
 }
 
-export const isSignedIn = () => {
-  const auth = firebase.auth();
-  if (auth.currentUser !== null) {
-    // const uid = auth.currentUser.uid
-    return console.log("user is signed in")
-  }
-  else {
-    window.location.href = "/signin"
-    console.log("user is signed out")
-  }
-}
+// export const isSignedIn = () => {
+//   const auth = firebase.auth();
+//   if (auth.currentUser !== null) {
+//     // const uid = auth.currentUser.uid
+//     return console.log("user is signed in")
+//   }
+//   else {
+//     console.log("user is signed out")
+//     window.location.href = "/signin"
+//   }
+// }
 
 export const getUserId = () => {
   const auth = firebase.auth();

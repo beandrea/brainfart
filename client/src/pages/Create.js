@@ -3,7 +3,7 @@ import CreateComponent from "../components/Create/CreateComponent";
 
 function Create() {
 
-    const questionsArray = []
+    const questionsArray = [];
 
     function addQuestion () {
 
@@ -18,11 +18,11 @@ function Create() {
                     document.getElementById("createAnswer3").value
                 ],
                 correctAnswer: document.getElementById("createCorrectAnswer").value
-
             }
-        ]
-        questionsArray.push(questionsArrayItem)
-        console.log(questionsArray)
+        ];
+
+        questionsArray.push(questionsArrayItem);
+        console.log(questionsArray);
 
         
         // let div = document.createElement(<CreateComponent/>)
@@ -37,7 +37,7 @@ function Create() {
             </div>
             <button onClick={addQuestion}>Next</button>
         </div>
-    )
+    );
 }
 
-export default Create
+export default Create;

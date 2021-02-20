@@ -8,6 +8,8 @@ function CompSci(props) {
 
     const [cs, setCs] = useState([]);
 
+    const correctChoice = [];
+
 
     useEffect(() => {
         getQuizzes()
@@ -31,7 +33,7 @@ function CompSci(props) {
 
     function getQuizzes() {
         API.getQuiz(reqParam).then(res => {
-            console.log(res)
+            console.log(res);
 
             if (res.data.length > 0) {
                 let quiz = res.data.map((obj) => {
@@ -45,35 +47,48 @@ function CompSci(props) {
                         randomA.push(ans);
                         answers.splice(i, 1)
                     }
+
                     let newObj = {
                         question: decodeText(obj.question),
                         answers: randomA,
                         correctAnswer: decodeText(obj.correct_answer)
-                    }
+                    };
     
-                    return newObj
-                })
-                
-                console.log(quiz)
-               
-                setCs(quiz)
+                    return newObj;
+                });
+   
+                setCs(quiz);
             }
             else {
-                console.log("checking for user quiz")
+                console.log("checking for user quiz");
                 ///check table for user quizes
             }
         });
     }
 
+    cs.forEach(e => {
+        correctChoice.push(false);
+    });
+
     function chosenAnswer(e) {
         for (let i = 0; i < cs.length; i++) {
-            let correct = cs[i].correctAnswer
-            const clicked = e.target.value
+            let correct = cs[i].correctAnswer;
+            const clicked = e.target.value;
             if (clicked === correct) {
-
-                alert('yes')
+                correctChoice[i] = true;
             }
         }
+    }
+
+    function handleSubmit() {
+        let score = 0;
+        for (let i = 0; i < cs.length; i++) {
+            if(correctChoice[i]){
+                score += 10;
+            }
+        }
+
+        alert(score);
     }
 
     return (
@@ -86,7 +101,7 @@ function CompSci(props) {
                             <form>
                                 {quiz.answers.map(allAnswers => (
                                     <div>
-                                        <input id="testing" type="radio" className="answers" onClick={chosenAnswer} value={allAnswers} name={quiz.question} />
+                                        <input id="testing" type="radio" className="answers" value={allAnswers} name={quiz.question} onClick={chosenAnswer}/>
                                         <label>{allAnswers}</label>
                                     </div>
                                 ))}
@@ -94,9 +109,11 @@ function CompSci(props) {
                         </div>
                     </div>
                 ))}
+
+                <button type="submit" className="endQuiz" onClick={handleSubmit}>Submit</button>
             </div>
         </div>
-    )
+    );
 }
 
 export default CompSci;

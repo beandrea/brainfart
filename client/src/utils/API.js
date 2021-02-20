@@ -5,7 +5,7 @@ export default {
     getQuiz: function(quizData) {
         return axios.get(`../api/quiz/${quizData}`);
     },
-    submitQuiz: function(score, quizName) {
-        return axios.post(`../api/result/`);
+    submitQuiz: function(score, quizName, id) {
+        return axios.put(`../api/${id}`);
     }
 };

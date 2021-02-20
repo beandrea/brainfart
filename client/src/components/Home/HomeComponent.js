@@ -12,7 +12,7 @@ function HomeComponent() {
                 <div className="welcomeSection">
                     <div className="welcomeLeft">
                         <h1>Brain Fart</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.</p>
+                        <p>Welcome to BrainFart, a place where you can test your knowledge on the subjects you love. Take and make quizzes to help you further your grades and do well in your classes. With BrainFart, youll never have to worry about your professors deleting quizzes because we enforce a strict no snitch policy. And we all know that snitches get stitches</p>
                         <SignUpBtn></SignUpBtn>
                         {/* // type="button" 
                         // className="button btn btn-primary"

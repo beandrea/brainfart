@@ -66,7 +66,7 @@ export const isSignedIn = () => {
 
 export const getUserId = () => {
   const auth = firebase.auth();
-  return auth.currentUser.uid
+  return auth.currentUser.uid;
 }
 
 

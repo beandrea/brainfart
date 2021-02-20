@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./quiz.css";
 import API from "../../utils/API";
+import {getUserId} from "../../utils/firebase";
 
 function CompSci(props) {
 
@@ -87,7 +88,7 @@ function CompSci(props) {
                 score += 10;
             }
         }
-        API.submitQuiz(score, reqParam).then(res => {console.log(res)});
+        API.submitQuiz(score, reqParam, getUserId()).then(res => {console.log(res)});
 
         setTimeout(function(){ window.location.href = "/" }, 3000);
     }

@@ -7,7 +7,8 @@ import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import Category from "./pages/Category"
 import Footer from "./components/Footer/Footer";
-import Quiz from './components/Quiz/QuizComponent'
+import Quiz from './components/Quiz/QuizComponent';
+import Create from './pages/Create';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/signin" component={Signin} />
             <Route path = "/quiz/:id" component={Quiz}/>
+            <Route exact path= "/create" component={Create}/>
           </Switch>
         </div>
       </Router>

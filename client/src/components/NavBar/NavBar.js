@@ -22,6 +22,11 @@ function NavBar() {
                         Profile
                 </Link>
                 </li>
+                <li className="nav-item" title="Create a Quiz">
+                    <Link to ="/create">
+                        Create A Quiz
+                    </Link>
+                </li>
                 <li className="nav-item" title="Search" id="searchBar">
                     <form>
                         <input type="search" placeholder="Search"></input>

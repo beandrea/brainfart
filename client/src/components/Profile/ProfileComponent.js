@@ -35,7 +35,7 @@ function ProfileComponent() {
                     <div id="created" className="card-body background">
                         <h6 className="quizName">Quiz Name: { }</h6>
                         <div id="btns">
-                            <button className="btn btn-outline-success createdBtns">Add</button>
+                            <button className="btn btn-outline-success createdBtns">Delete</button>
                             <button className="btn btn-outline-warning createdBtns">Edit</button>
                         </div>
                     </div>

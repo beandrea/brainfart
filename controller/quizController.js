@@ -6,7 +6,7 @@ BASEURL2 = "&difficulty=easy&type=multiple"
 const quizUrl = {
     "science":"17",
     "history":"23",
-    "compsci":"18",
+    "compSci":"18",
     "mythology":"20",
     "sports":"21",
     "geography":"22",

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import "./nav.css";
 import SchoolIcon from '@material-ui/icons/School';
+import PowerIcon from '@material-ui/icons/PowerSettingsNew'
 import { signOut } from "../../utils/firebase";
 
 
@@ -30,7 +31,9 @@ function NavBar() {
                     </Link>
                 </li>
                 <li className="nav-item" title="Create a Quiz">
-                    <button onClick={signOut}>Sign Out</button>
+                    <button className="btn" onClick={signOut} alt="sign out"><span id="power">
+                        <PowerIcon />
+                    </span> </button>
                 </li>
                 <li className="nav-item" title="Search" id="searchBar">
                     <form>

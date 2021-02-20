@@ -5,7 +5,7 @@ function CreateComponent() {
 
     return (
         <div className="createMainDiv">
-            <div className="card">
+            <div className="card" id="create">
                 <div className="card-body">
                     <div>
                         <h3>Title:</h3>

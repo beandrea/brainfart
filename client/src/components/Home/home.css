@@ -41,7 +41,7 @@
 
 
 .cardSection {
-    background-color: rgb(218, 198, 255);
+    /* background-color: rgb(218, 198, 255); */
     display: flex;
     justify-content: center;
     height: auto;

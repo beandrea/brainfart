@@ -96,7 +96,7 @@ function CompSci(props) {
             <div className="quiz">
                 {cs.map(quiz => (
                     <div className="container" id="quizContainer">
-                    <div className="card" key={quiz.correctAnswer}>
+                    <div className="card" id="questions" key={quiz.correctAnswer}>
                         <div className="card-body">
                             <h3>{quiz.question}</h3>
                             <form>
@@ -112,7 +112,7 @@ function CompSci(props) {
                     </div>
                 ))}
 
-                <button type="submit" className="endQuiz" onClick={handleSubmit}>Submit</button>
+                <button style={{margin:"20px"}} type="submit" className="btn btn-primary endQuiz" onClick={handleSubmit}>Submit</button>
             </div>
         </div>
     );

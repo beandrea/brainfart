@@ -29,9 +29,9 @@ const SignUp = () => {
       console.log("test")
       console.log(userInfo)
       // isSignedIn()
-      // if(userInfo.user.uid) {
-      //   window.location.href = "/"
-      // }
+      if(userInfo.user.uid) {
+        window.location.href = "/"
+      }
     }
 
     setEmail("");

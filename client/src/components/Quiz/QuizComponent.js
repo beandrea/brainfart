@@ -4,13 +4,9 @@ import API from "../../utils/API";
 import {getUserId} from "../../utils/firebase";
 
 function CompSci(props) {
-
-    const reqParam = props.match.params.id
-
+    const reqParam = props.match.params.id;
     const [cs, setCs] = useState([]);
-
     const correctChoice = [];
-
 
     useEffect(() => {
         getQuizzes()
@@ -28,7 +24,7 @@ function CompSci(props) {
             .replace(/&gt;/g, '>')
             .replace(/<br>/g, '\n')
             .replace(/<br \/>/g, '\n')
-            .replace(/<br\/>/g, '\n')
+            .replace(/<br\/>/g, '\n');
         return decodedText;
     }
 
@@ -90,7 +86,7 @@ function CompSci(props) {
         }
         API.submitQuiz(score, reqParam, getUserId());
 
-        // setTimeout(function(){ window.location.href = "/" }, 3000);
+        setTimeout(function(){ window.location.href = "/results" }, 1500);
     }
 
     return (

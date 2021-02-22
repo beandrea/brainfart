@@ -14,8 +14,7 @@ export default {
                     "result": score,
                     "quizName": quizName
                 }];
-            }
-            else {
+            } else {
                 let scores = user.userScores;
                 scores.push({
                     "result": score,
@@ -33,5 +32,19 @@ export default {
         axios.get(`../api/user/${id}`).then(res => {
             return res.data
         });
-    }
+    },
+    getScore : function (id) {
+        axios.get(`../api/user/${id}`).then(res => {
+            let user = res.data;
+            console.log(user);
+
+            if(!(user === null)){
+                if(user.userScores === undefined) {
+                    return -1;
+                } else {
+                    return user.userScores;
+                }
+            }
+        });
+    },
 };

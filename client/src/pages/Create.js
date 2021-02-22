@@ -1,7 +1,10 @@
 import React from 'react';
 import CreateComponent from "../components/Create/CreateComponent";
+import isSignedIn from "../utils/isSignedIn";
 
 function Create() {
+
+    isSignedIn()
 
     const questionsArray = [];
 

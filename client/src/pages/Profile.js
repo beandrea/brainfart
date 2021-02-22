@@ -1,9 +1,10 @@
 import React from "react";
 import ProfileComponent from "../components/Profile/ProfileComponent";
-import { isSignedIn } from "../utils/firebase";
+import isSignedIn from "../utils/isSignedIn";
 import Redirect from "react-dom";
 
 const ProfilePage = () => {
+
     isSignedIn()
 
     return (

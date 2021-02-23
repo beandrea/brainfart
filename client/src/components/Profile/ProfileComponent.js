@@ -4,8 +4,6 @@ import API from '../../utils/API';
 import {getUserId} from "../../utils/firebase";
 import MyQuiz from "../MyQuiz/MyQuiz"
 
-
-
 function ProfileComponent() {
 
     const [theUser, setTheUser] = useState({})
@@ -33,7 +31,7 @@ function ProfileComponent() {
     }
 
     return (
-        <div >
+        <div>
             <div id="profilePicCard" className="card">
                 <div className="card-body">
                     <div id="usernameCard" className="card-body">

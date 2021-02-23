@@ -14,8 +14,7 @@ export default {
                     "result": score,
                     "quizName": quizName
                 }];
-            }
-            else {
+            } else {
                 let scores = user.userScores;
                 scores.push({
                     "result": score,

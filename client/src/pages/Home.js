@@ -1,13 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import HomeComponent from "../components/Home/HomeComponent";
-import { isSignedIn } from "../utils/firebase";
+import isSignedIn from "../utils/isSignedIn";
 
 
 function Home() {
-    
+
     isSignedIn()
-
-
+    
     return (
         <div>
             <HomeComponent />

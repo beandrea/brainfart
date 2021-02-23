@@ -39,8 +39,6 @@ function Create() {
 
         // questionsArray.push(questionsArrayItem);
         // console.log(questionsArray);
-
-
         // let div = document.createElement(<CreateComponent/>)
         // let card = document.getElementById("createdCard")
         // card.append(div)

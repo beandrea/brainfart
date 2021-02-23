@@ -42,7 +42,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findUserQuiz: function (req, res) {
-        db.findById({createdBy:req.params.id})
+        db.find({createdBy:req.params.id})
             .then(dbModel => res.json(dbModel))
             .catch(err => console.log(err));
     }

@@ -13,20 +13,22 @@ subject: {
     required: true,
     trim: true
 },
-question: {
-    type: String,
+questions: {
+    type: Array,
     required: true,
     trim: true
 },
 correctAnswer: {
-    type: String,
-    required: true,
-    trim: true
-},
-answers: {
     type: Array,
     required: true,
     trim: true
+},
+questionAnswers: {
+    answers: {
+        type: Array,
+        required: true,
+        trim: true
+    }
 },
 createdBy: {
     type: String,

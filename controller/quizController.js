@@ -40,5 +40,15 @@ module.exports = {
         db.findOneAndUpdate({ _id: req.params.id }, req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    findUserQuiz: function (req, res) {
+        db.find({createdBy:req.params.id})
+            .then(dbModel => res.json(dbModel))
+            .catch(err => console.log(err));
+    },
+    deleteUsersQuiz: function (req, res) {
+        db.deleteOne({_id: req.params.id})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => console.log(err));
     }
 }

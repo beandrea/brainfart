@@ -1,20 +1,33 @@
-import React, {useEffect, useState} from 'react';
-import API from '../../utils/API';
+import React, { useState, useEffect } from 'react';
 import "./profile.css";
-import { getUserId } from "../../utils/firebase";
+import API from '../../utils/API';
+import {getUserId} from "../../utils/firebase";
+import MyQuiz from "../MyQuiz/MyQuiz"
 
 function ProfileComponent() {
 
     const [theUser, setTheUser] = useState({})
+    const [theQuiz, setTheQuiz] = useState([])
+    const myId = getUserId()
 
     useEffect(() => {
         UserInfo()
+        getUsersQuiz()
+        
     }, [])
 
     function UserInfo() {
-        API.getUserInfo(getUserId()).then(res => 
+        API.getUserInfo(myId).then(res =>
             setTheUser(res.data))
-            console.log(theUser)
+        console.log(theUser)
+    }
+
+    function getUsersQuiz() {
+        API.getTheUserQuizes(myId).then(res => 
+            setTheQuiz(res.data)
+        )
+        
+        console.log(theQuiz)
     }
 
     return (
@@ -47,13 +60,9 @@ function ProfileComponent() {
                 </div>
                 <div className="card infoCards">
                     <h5> My Created Quizes</h5>
-                    <div id="created" className="card-body background">
-                        <h6 className="quizName">Quiz Name: { }</h6>
-                        <div id="btns">
-                            <button className="btn btn-outline-success createdBtns">Delete</button>
-                            <button className="btn btn-outline-warning createdBtns">Edit</button>
-                        </div>
-                    </div>
+                    <MyQuiz
+                    theQuiz={theQuiz}
+                    />
                 </div>
                 <div className="card infoCards">
                     <h5>My Previous Quizes</h5>

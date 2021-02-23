@@ -1,39 +1,34 @@
 import React from 'react';
 import "./create.css";
 
-function CreateComponent() {
+function CreateComponent(props) {
+
+    // console.log(props)
 
     return (
         <div className="createMainDiv">
-            <div className="card" id="create">
+            <div className="card" id={"create" + props.id}>
                 <div className="card-body">
-                    <div>
-                        <h3>Title:</h3>
-                        <input id="createTitle"></input>
-                    </div>
-                    <div>
-                        <h3>Subject:</h3>
-                        <input id="createSubject"></input>
-                    </div>
+                    
                     <div>
                         <h3>Question:</h3>
-                        <input id="createQuestion"></input>
+                        <input id={"createQuestion" + props.id}></input>
                     </div>
                     <div>
                         <h4>Answer 1:</h4>
-                        <input id="createAnswer1"></input>
+                        <input id={"createAnswer1" + props.id}></input>
                     </div>
                     <div>
                         <h4>Answer 2:</h4>
-                        <input id="createAnswer2"></input>
+                        <input id={"createAnswer2" + props.id}></input>
                     </div>
                     <div>
                         <h4>Answer 3:</h4>
-                        <input id="createAnswer3"></input>
+                        <input id={"createAnswer3" + props.id}></input>
                     </div>
                     <div>
                         <h4>Answer 4:</h4>
-                        <input id="createCorrectAnswer"></input>
+                        <input id={"createCorrectAnswer" + props.id}></input>
                     </div>
                     {/* <div>
                         <button className="addQuestionBtn">Add Question</button>

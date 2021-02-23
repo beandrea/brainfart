@@ -14,5 +14,6 @@ router.route("/find/:id")
 
 router.route("/userquiz/:id")
     .get(quizController.findUserQuiz)
+    .delete(quizController.deleteUsersQuiz)
 
 module.exports = router;

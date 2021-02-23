@@ -45,5 +45,10 @@ module.exports = {
         db.find({createdBy:req.params.id})
             .then(dbModel => res.json(dbModel))
             .catch(err => console.log(err));
+    },
+    deleteUsersQuiz: function (req, res) {
+        db.deleteOne({_id: req.params.id})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => console.log(err));
     }
 }

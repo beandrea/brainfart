@@ -43,6 +43,9 @@ export default {
     },
     getTheUserQuizes: function (id) {
         return axios.get(`../api/quiz/userQuiz/${id}`)
+    },
+    deleteQuiz: function (id) {
+        return axios.delete(`../api/quiz/userQuiz/${id}`)
     }
 
 };

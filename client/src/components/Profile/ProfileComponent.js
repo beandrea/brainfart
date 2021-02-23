@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "./profile.css";
 import API from '../../utils/API';
 import {getUserId} from "../../utils/firebase";
+import MyQuiz from "../MyQuiz/MyQuiz"
 
 
 
@@ -27,6 +28,7 @@ function ProfileComponent() {
         API.getTheUserQuizes(myId).then(res => 
             setTheQuiz(res.data)
         )
+        
         console.log(theQuiz)
     }
 
@@ -60,13 +62,9 @@ function ProfileComponent() {
                 </div>
                 <div className="card infoCards">
                     <h5> My Created Quizes</h5>
-                    <div id="created" className="card-body background">
-                        <h6 className="quizName">Quiz Name: { }</h6>
-                        <div id="btns">
-                            <button className="btn btn-outline-success createdBtns">Delete</button>
-                            <button className="btn btn-outline-warning createdBtns">Edit</button>
-                        </div>
-                    </div>
+                    <MyQuiz
+                    theQuiz={theQuiz}
+                    />
                 </div>
                 <div className="card infoCards">
                     <h5>My Previous Quizes</h5>

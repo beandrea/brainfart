@@ -33,5 +33,8 @@ export default {
         axios.get(`../api/user/${id}`).then(res => {
             return res.data
         });
+    },
+    createQuiz: function(data) {
+        axios.post(`../api/quiz/`, data).then(res => {});
     }
 };

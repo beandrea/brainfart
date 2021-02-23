@@ -1,5 +1,14 @@
+
+
 .loginDiv {
-    margin-top: 120px;
+    background-color: rgb(155, 122, 216);;
+    padding-top: 120px;
+    min-height: calc(100vh);
+}
+
+.form-container {
+    width: 80%;
+    max-width: 400px;
 }
 
 .formStyle {

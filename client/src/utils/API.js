@@ -47,4 +47,8 @@ export default {
             }
         });
     },
+
+    getUserInfo: function (id) {
+        return axios.get(`../api/user/${id}`)
+    }
 };

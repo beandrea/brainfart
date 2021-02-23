@@ -1,13 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import API from '../../utils/API';
 import "./profile.css";
+import { getUserId } from "../../utils/firebase";
 
 function ProfileComponent() {
+
+    const [theUser, setTheUser] = useState({})
+
+    useEffect(() => {
+        UserInfo()
+    }, [])
+
+    function UserInfo() {
+        API.getUserInfo(getUserId()).then(res => 
+            setTheUser(res.data))
+            console.log(theUser)
+    }
+
     return (
-        <div >
+        <div>
             <div id="profilePicCard" className="card">
                 <div className="card-body">
                     <div id="usernameCard" className="card-body">
-                        <div id="usernameDisplay">Username Displayed Here</div>
+                        <div id="usernameDisplay">Username: {theUser.email}</div>
                     </div>
                     <img id="profilePic" src="https://smhlancers.org/wp-content/uploads/2016/06/profile-placeholder.png" alt="profilepic"></img>
                 </div>

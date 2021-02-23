@@ -9,7 +9,7 @@ import Category from "./pages/Category"
 import Footer from "./components/Footer/Footer";
 import Quiz from './components/Quiz/QuizComponent';
 import Create from './pages/Create';
-import Results from './components/QuizResults/Results';
+import Results from './components/QuizResults/results';
 
 function App() {
   return (

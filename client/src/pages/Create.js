@@ -26,7 +26,9 @@ function Create() {
 
         questionsArray.push(questionsArrayItem);
         console.log(questionsArray);
-
+        
+        var returned = document.getElementById("createdCard")
+        console.log(returned)
         
         // let div = document.createElement(<CreateComponent/>)
         // let card = document.getElementById("createdCard")

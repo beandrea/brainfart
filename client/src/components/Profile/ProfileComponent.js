@@ -1,13 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./profile.css";
+import API from '../../utils/API';
+import {getUserId} from "../../utils/firebase";
+
+
 
 function ProfileComponent() {
+
+    const [theUser, setTheUser] = useState({})
+    const [theQuiz, setTheQuiz] = useState([])
+    const myId = getUserId()
+
+    useEffect(() => {
+        UserInfo()
+        getUsersQuiz()
+        
+    }, [])
+
+    function UserInfo() {
+        API.getUserInfo(myId).then(res =>
+            setTheUser(res.data))
+        console.log(theUser)
+    }
+
+    function getUsersQuiz() {
+        API.getTheUserQuizes(myId).then(res => 
+            setTheQuiz(res.data)
+        )
+        console.log(theQuiz)
+    }
+
     return (
         <div >
             <div id="profilePicCard" className="card">
                 <div className="card-body">
                     <div id="usernameCard" className="card-body">
-                        <div id="usernameDisplay">Username Displayed Here</div>
+                        <div id="usernameDisplay">Username: {theUser.email}</div>
                     </div>
                     <img id="profilePic" src="https://smhlancers.org/wp-content/uploads/2016/06/profile-placeholder.png" alt="profilepic"></img>
                 </div>

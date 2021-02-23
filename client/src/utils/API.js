@@ -2,14 +2,14 @@ import axios from "axios";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    getQuiz: function(quizData) {
+    getQuiz: function (quizData) {
         return axios.get(`../api/quiz/${quizData}`);
     },
-    submitQuiz: function(score, quizName, id) {
+    submitQuiz: function (score, quizName, id) {
         axios.get(`../api/user/${id}`).then(res => {
             let user = res.data;
 
-            if(user.userScores === undefined) {
+            if (user.userScores === undefined) {
                 user.userScores = [{
                     "result": score,
                     "quizName": quizName
@@ -23,7 +23,7 @@ export default {
                 });
                 user.userScores = scores;
             }
-            
+
             axios.put(`../api/user/${id}`, user).then(res => {
                 return res.data;
             });
@@ -34,7 +34,15 @@ export default {
             return res.data
         });
     },
-    createQuiz: function(data) {
-        axios.post(`../api/quiz/`, data).then(res => {});
+    createQuiz: function (data) {
+        axios.post(`../api/quiz/`, data).then(res => { });
+    },
+
+    getUserInfo: function (id) {
+        return axios.get(`../api/user/${id}`)
+    },
+    getTheUserQuizes: function (id) {
+        return axios.get(`../api/quiz/userQuiz/${id}`)
     }
+
 };

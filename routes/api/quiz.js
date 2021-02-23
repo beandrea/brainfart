@@ -12,5 +12,7 @@ router.route("/find/:id")
     .get(quizController.findQuizById)
     .put(quizController.updateQuiz);
 
+router.route("/userquiz/:id")
+    .get(quizController.findUserQuiz)
 
 module.exports = router;

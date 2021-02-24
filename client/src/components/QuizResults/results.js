@@ -1,20 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './results.css';
 import API from '../../utils/API';
-import {getUserId} from "../../utils/firebase";
+import { getUserId } from "../../utils/firebase";
 
 function Results() {
+
+    const [scores, setUserScores] = useState([])
+
+    useEffect(() => {
+        getResults()
+    }, [])
+
+
+    function getResults() {
+        API.getUserInfo(getUserId()).then(res => {
+            let newScores = res.data.userScores
+            newScores.sort((a,b) => a-b).reverse()
+            setUserScores(newScores)
+            console.log(scores)
+        })
+    }
+
     return (
         <div className="spaceout">
-            <p className="score">
-                <button onClick={parse}>See your score!</button>
-            </p>
+            <div>
+                <h1>My Results</h1>
+                <br/>
+                {scores.map(s => (
+                    <div key={s.result}>
+                        <p>Quiz Name: {s.quizName}</p>
+                        <p>Score: {s.result}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     )
-}
-
-function parse(){
-    return (document.querySelector('p').innerHTML = `You scored: ${API.getScore(getUserId)}`);
 }
 
 export default Results;

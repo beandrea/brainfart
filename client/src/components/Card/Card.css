@@ -3,4 +3,9 @@
     margin-bottom: 20px;
     width: 250px;
     height: 300px;
+
+}
+
+.subjectCard:hover{
+    box-shadow: 5px 10px rgb(88, 22, 126);
 }

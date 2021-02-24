@@ -8,4 +8,5 @@
 
 .subjectCard:hover{
     box-shadow: 5px 10px rgb(88, 22, 126);
+    margin: 30px 40px;
 }

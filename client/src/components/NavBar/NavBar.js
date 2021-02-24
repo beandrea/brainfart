@@ -26,7 +26,7 @@ function NavBar() {
                 </Link>
                 </li>
                 <li className="nav-item" title="Create a Quiz">
-                    <Link to ="/create">
+                    <Link to ="/create" action="crea">
                         Create A Quiz
                     </Link>
                 </li>

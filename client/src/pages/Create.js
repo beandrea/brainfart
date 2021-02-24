@@ -1,47 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import CreateComponent from "../components/Create/CreateComponent";
 import API from "../utils/API"
-import {getUserId} from  "../utils/firebase"
+import { getUserId } from "../utils/firebase"
 
-let questionsArray = ["","",""]
+// let questionsArray = ["", "", ""]
 
-function Create() {
+function Create(props) {
 
-    const [questions, setquestions] = useState([]);
+    const url = window.location.pathname
+
+    let [numberOfElements, setNumberOfElements] = useState(1);
 
     useEffect(() => {
-        setquestions(questionsArray)
-    }, [])
+        if (url === "/update") {
+            const quizId = props.location.state.id;
+            const quizData = props.location.state.quizObj;
+            let questionsNum = quizData.questions.length
+
+            console.log(questionsNum)
+            console.log(quizData)
+
+
+            setNumberOfElements(questionsNum);
+
+            setTimeout(function(){
+                document.getElementById("createTitle").value = quizData.title
+                document.getElementById("createSubject").value = quizData.subject
+    
+                for(let i = 0; i < questionsNum; i++) {    
+                    document.getElementById("createQuestion" + i).value = quizData.questions[i]
+    
+                    console.log(quizData.questionAnswers)
+    
+                    for (let j = 0; j < quizData.questionAnswers[i].length; j++) {
+                        document.getElementById("createAnswer" + (j + 1) + "" + i).value = quizData.questionAnswers[i][j]
+                    }
+    
+                    document.getElementById("createCorrectAnswer" + i).value = quizData.correctAnswer[i]
+                }
+            }, 1000)
+
+        }   
+    },[])
+
 
     function addQuestion() {
-        questionsArray.push(questionsArray)
-        console.log(questionsArray)
-        setquestions(questionsArray)
-        // setquestions((state) => {
-        //     console.log(state)
-        //     return state
-        // })
-
-
-        // let questionsArrayItem = [
-        //     {
-        //         title: document.getElementById("createTitle").value,
-        //         subject: document.getElementById("createSubject").value,
-        //         question: document.getElementById("createQuestion").value,
-        //         answers:[
-        //             document.getElementById("createAnswer1").value,
-        //             document.getElementById("createAnswer2").value,
-        //             document.getElementById("createAnswer3").value
-        //         ],
-        //         correctAnswer: document.getElementById("createCorrectAnswer").value
-        //     }
-        // ];
-
-        // questionsArray.push(questionsArrayItem);
-        // console.log(questionsArray);
-        // let div = document.createElement(<CreateComponent/>)
-        // let card = document.getElementById("createdCard")
-        // card.append(div)
+        numberOfElements++;
+        setNumberOfElements(numberOfElements)
     }
 
     function submitQuiz() {
@@ -50,10 +55,12 @@ function Create() {
             title: document.getElementById("createTitle").value,
             subject: document.getElementById("createSubject").value,
             questions: [],
-            answers: [],
+            questionAnswers: [],
             correctAnswer: []
         }
-        questionsArray.forEach((e, i) => {
+
+        for(let i = 0; i < numberOfElements; i++) {
+        // questionsArray.forEach((e, i) => {
 
             questionsArrayItem.questions.push(document.getElementById("createQuestion" + i).value)
 
@@ -65,40 +72,67 @@ function Create() {
 
             let answerArr = tempArr.filter(n => n !== "")
 
-            questionsArrayItem.answers.push(answerArr)
+            questionsArrayItem.questionAnswers.push(answerArr)
             questionsArrayItem.correctAnswer.push(document.getElementById("createCorrectAnswer" + i).value)
 
-        })
+        }
         console.log(questionsArrayItem)
         API.createQuiz(questionsArrayItem)
     }
 
-    return (
-        <div className="createDiv">
-            <div id="createdCard">
-                <div>
-                    <h3>Title:</h3>
-                    <input id={"createTitle"}></input>
+    function updateQuiz () {
+
+    }
+
+    if(url === "/create") {
+        return (
+            <div className="createDiv">
+                <div id="createdCard">
+                    <div>
+                        <h3>Title:</h3>
+                        <input id={"createTitle"}></input>
+                    </div>
+                    <div>
+                        <h3>Subject:</h3>
+                        <input id={"createSubject"}></input>
+                    </div>
+                    {Array.from(Array(numberOfElements).keys()).map((e, i) => {
+                        return <CreateComponent
+                            key={i}
+                            id={i}
+                        />
+                    })}
                 </div>
-                <div>
-                    <h3>Subject:</h3>
-                    <input id={"createSubject"}></input>
-                </div>
-                {/* <CreateComponent
-                    key="0"
-                    id="0"
-                /> */}
-                {questions.map((e, i) => {
-                    return <CreateComponent
-                        key={i}
-                        id={i}
-                    />
-                })}
+                <button onClick={addQuestion}>Add New Question</button>
+                <button onClick={submitQuiz}>Submit Quiz</button>
             </div>
-            <button onClick={addQuestion}>Add New Question</button>
-            <button onClick={submitQuiz}>Submit Quiz</button>
-        </div>
-    );
+        );
+    } else {
+        return (
+            <div className="createDiv">
+                <div id="createdCard">
+                    <div>
+                        <h3>Title:</h3>
+                        <input id={"createTitle"}></input>
+                    </div>
+                    <div>
+                        <h3>Subject:</h3>
+                        <input id={"createSubject"}></input>
+                    </div>
+                    {Array.from(Array(numberOfElements).keys()).map((e, i) => {
+                        return <CreateComponent
+                            key={i}
+                            id={i}
+                        />
+                    })}
+                </div>
+                <button onClick={addQuestion}>Add New Question</button>
+                <button onClick={updateQuiz}>Update Quiz</button>
+            </div>
+
+        );
+    }
 }
+
 
 export default Create;

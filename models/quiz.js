@@ -24,11 +24,9 @@ correctAnswer: {
     trim: true
 },
 questionAnswers: {
-    answers: {
         type: Array,
         required: true,
         trim: true
-    }
 },
 createdBy: {
     type: String,

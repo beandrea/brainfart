@@ -1,10 +1,8 @@
 // import React from 'react'
 
 function isSignedIn() {
-    const isSignedIn = localStorage.getItem("isSignedIn")
-    console.log(isSignedIn)
-    if (isSignedIn === "false") {
-        console.log("true")
+    const uid = localStorage.getItem("uid")
+    if (uid === null) {
         window.location.href = "/signin"
     }
 }

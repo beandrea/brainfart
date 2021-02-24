@@ -36,7 +36,6 @@ export default {
     createQuiz: function(data) {
         axios.post(`../api/quiz/`, data).then(res => { });
     },
-
     getUserInfo: function(id) {
         return axios.get(`../api/user/${id}`)
     },
@@ -46,7 +45,7 @@ export default {
     deleteQuiz: function(id) {
         return axios.delete(`../api/quiz/userQuiz/${id}`)
     },
-    updateUserQuiz: function(id) {
-        return axios.put(`../api/quiz/userQuiz/${id}`);
+    updateUserQuiz: function(id, data) {
+        return axios.put(`../api/quiz/userQuiz/${id}`, data);
     }
 };

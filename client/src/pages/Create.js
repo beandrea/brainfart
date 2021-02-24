@@ -76,12 +76,13 @@ function Create(props) {
 
         }
         console.log(questionsArrayItem);
-        API.createQuiz(questionsArrayItem);
-    };
 
-    function updateQuiz() {
-        API.updateUserQuiz(props.location.state.id);
-    }
+        if(url === "/update") {
+            API.updateUserQuiz(props.location.state.id, questionsArrayItem);
+        } else if(url === "/create") {
+            API.createQuiz(questionsArrayItem);
+        } 
+    };
 
     if(url === "/create") {
         return (
@@ -126,7 +127,7 @@ function Create(props) {
                     })}
                 </div>
                 <button onClick={addQuestion}>Add New Question</button>
-                <button onClick={updateQuiz}>Update Quiz</button>
+                <button onClick={submitQuiz}>Update Quiz</button>
             </div>
 
         );

@@ -10,10 +10,11 @@ router.route("/:search")
 
 router.route("/find/:id")
     .get(quizController.findQuizById)
-    .put(quizController.updateQuiz);
+    .put(quizController.updateQuiz)
 
 router.route("/userquiz/:id")
     .get(quizController.findUserQuiz)
     .delete(quizController.deleteUsersQuiz)
+    .put(quizController.updateQuiz)
 
 module.exports = router;

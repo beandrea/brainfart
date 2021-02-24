@@ -28,23 +28,24 @@ export default {
             });
         });
     },
-    getQuizData: function (id) {
+    getQuizData: function(id) {
         axios.get(`../api/user/${id}`).then(res => {
             return res.data
         });
     },
-    createQuiz: function (data) {
+    createQuiz: function(data) {
         axios.post(`../api/quiz/`, data).then(res => { });
     },
-
-    getUserInfo: function (id) {
+    getUserInfo: function(id) {
         return axios.get(`../api/user/${id}`)
     },
-    getTheUserQuizes: function (id) {
+    getTheUserQuizes: function(id) {
         return axios.get(`../api/quiz/userQuiz/${id}`)
     },
-    deleteQuiz: function (id) {
+    deleteQuiz: function(id) {
         return axios.delete(`../api/quiz/userQuiz/${id}`)
+    },
+    updateUserQuiz: function(id, data) {
+        return axios.put(`../api/quiz/userQuiz/${id}`, data);
     }
-
 };

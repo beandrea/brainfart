@@ -15,7 +15,6 @@ function ProfileComponent() {
         UserInfo()
         getUsersQuiz()
         scoreInfo()
-        highestName()
     }, [])
 
     function UserInfo() {

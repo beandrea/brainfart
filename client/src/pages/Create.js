@@ -22,25 +22,25 @@ function Create(props) {
 
             setNumberOfElements(questionsNum);
 
-            setTimeout(function(){
+            setTimeout(function () {
                 document.getElementById("createTitle").value = quizData.title;
                 document.getElementById("createSubject").value = quizData.subject;
-    
-                for(let i = 0; i < questionsNum; i++) {    
+
+                for (let i = 0; i < questionsNum; i++) {
                     document.getElementById("createQuestion" + i).value = quizData.questions[i];
-    
+
                     console.log(quizData.questionAnswers);
-    
+
                     for (let j = 0; j < quizData.questionAnswers[i].length; j++) {
                         document.getElementById("createAnswer" + (j + 1) + "" + i).value = quizData.questionAnswers[i][j];
                     }
-    
+
                     document.getElementById("createCorrectAnswer" + i).value = quizData.correctAnswer[i];
                 }
             }, 1000);
 
-        }   
-    },[]);
+        }
+    }, []);
 
 
     function addQuestion() {
@@ -58,8 +58,8 @@ function Create(props) {
             correctAnswer: []
         };
 
-        for(let i = 0; i < numberOfElements; i++) {
-        // questionsArray.forEach((e, i) => {
+        for (let i = 0; i < numberOfElements; i++) {
+            // questionsArray.forEach((e, i) => {
 
             questionsArrayItem.questions.push(document.getElementById("createQuestion" + i).value);
 
@@ -77,14 +77,14 @@ function Create(props) {
         }
         console.log(questionsArrayItem);
 
-        if(url === "/update") {
+        if (url === "/update") {
             API.updateUserQuiz(props.location.state.id, questionsArrayItem);
-        } else if(url === "/create") {
+        } else if (url === "/create") {
             API.createQuiz(questionsArrayItem);
-        } 
+        }
     };
 
-    if(url === "/create") {
+    if (url === "/create") {
         return (
             <div className="createDiv">
                 <div id="createdCard">
@@ -94,7 +94,12 @@ function Create(props) {
                     </div>
                     <div>
                         <h3>Subject:</h3>
-                        <input id={"createSubject"}></input>
+                        <input id={"createSubject"}>
+                            <datalist id="subjects">
+                                <option value="Computer Science"/>
+                                <option value="Science"/>
+                            </datalist>
+                        </input>
                     </div>
                     {Array.from(Array(numberOfElements).keys()).map((e, i) => {
                         return <CreateComponent

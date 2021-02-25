@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import CreateComponent from "../components/Create/CreateComponent";
 import API from "../utils/API"
-import { getUserId } from "../utils/firebase"
-
-// let questionsArray = ["", "", ""]
+import { getUserId } from "../utils/firebase";
+import DropdownCst from "../components/DropdownCustom/DropdownCst";
 
 function Create(props) {
 
@@ -92,14 +91,9 @@ function Create(props) {
                         <h3>Title:</h3>
                         <input id={"createTitle"}></input>
                     </div>
-                    <div>
+                    <div id="subject" className="overflow-visible">
                         <h3>Subject:</h3>
-                        <input id={"createSubject"}>
-                            <datalist id="subjects">
-                                <option value="Computer Science"/>
-                                <option value="Science"/>
-                            </datalist>
-                        </input>
+                        <DropdownCst></DropdownCst>
                     </div>
                     {Array.from(Array(numberOfElements).keys()).map((e, i) => {
                         return <CreateComponent

@@ -116,7 +116,7 @@ function Create(props) {
                     </div>
                     <div>
                         <h3>Subject:</h3>
-                        <input id={"createSubject"}></input>
+                        <DropdownCst></DropdownCst>
                     </div>
                     {Array.from(Array(numberOfElements).keys()).map((e, i) => {
                         return <CreateComponent

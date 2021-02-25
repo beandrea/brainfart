@@ -92,7 +92,6 @@ function Create(props) {
                         <input id={"createTitle"}></input>
                     </div>
                     <div id="subject" className="overflow-visible">
-                        <h3>Subject:</h3>
                         <DropdownCst></DropdownCst>
                     </div>
                     {Array.from(Array(numberOfElements).keys()).map((e, i) => {
@@ -115,7 +114,6 @@ function Create(props) {
                         <input id={"createTitle"}></input>
                     </div>
                     <div>
-                        <h3>Subject:</h3>
                         <DropdownCst></DropdownCst>
                     </div>
                     {Array.from(Array(numberOfElements).keys()).map((e, i) => {

@@ -1,7 +1,6 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ListItemText from '@material-ui/core/ListItemText';
-import './DropdownCst.css';
 
 const items = [
     { name: 'Math', label: "Math" },
@@ -14,8 +13,8 @@ const items = [
 
 function DropdownCst() {
     return (
-        <Dropdown style={{fontSize: "400px;"}}>
-            <Dropdown.Toggle as={CustomToggle} id="dropdown-basic" style={{fontSize: "400px;"}}>
+        <Dropdown>
+            <Dropdown.Toggle as={CustomToggle} id="dropdown-basic">
                 Subject
             </Dropdown.Toggle>
 

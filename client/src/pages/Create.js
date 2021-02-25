@@ -3,6 +3,7 @@ import CreateComponent from "../components/Create/CreateComponent";
 import API from "../utils/API"
 import { getUserId } from "../utils/firebase";
 import DropdownCst from "../components/DropdownCustom/DropdownCst";
+import './style/login.css';
 
 function Create(props) {
 
@@ -86,11 +87,12 @@ function Create(props) {
     if (url === "/create") {
         return (
             <div className="createDiv">
+                <div className="mx-auto" id="title-div">
+                    <h3>Title:</h3>
+                    <input id={"createTitle"}></input>
+                </div>
+                <br />
                 <div id="createdCard">
-                    <div>
-                        <h3>Title:</h3>
-                        <input id={"createTitle"}></input>
-                    </div>
                     <div id="subject" className="overflow-visible">
                         <DropdownCst></DropdownCst>
                     </div>
@@ -108,14 +110,15 @@ function Create(props) {
     } else {
         return (
             <div className="createDiv">
+                <div className="mx-auto" id="title-div">
+                    <h3>Title:</h3>
+                    <input id={"createTitle"}></input>
+                </div>
+                <br />
+                <div>
+                    <DropdownCst></DropdownCst>
+                </div>
                 <div id="createdCard">
-                    <div>
-                        <h3>Title:</h3>
-                        <input id={"createTitle"}></input>
-                    </div>
-                    <div>
-                        <DropdownCst></DropdownCst>
-                    </div>
                     {Array.from(Array(numberOfElements).keys()).map((e, i) => {
                         return <CreateComponent
                             key={i}

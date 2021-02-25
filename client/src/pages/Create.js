@@ -113,6 +113,7 @@ function Create(props) {
         );
     } else {
         return (
+            <div className="container">
             <div className="createDiv">
                 <div className="mx-auto" id="title-div">
                     <h3>Title:</h3>
@@ -130,8 +131,11 @@ function Create(props) {
                         />
                     })}
                 </div>
-                <button onClick={addQuestion}>Add New Question</button>
-                <button onClick={submitQuiz}>Update Quiz</button>
+                <button className="btn btn-primary"
+                onClick={addQuestion}>Add New Question</button>
+                <button className="btn btn-danger"
+                onClick={submitQuiz}>Update Quiz</button>
+            </div>
             </div>
 
         );

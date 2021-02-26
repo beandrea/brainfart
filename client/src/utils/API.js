@@ -50,6 +50,9 @@ export default {
     },
     getQuizByCategory: function(category) {
         return axios.get(`../api/quiz/category/${category}`)
+    },
+    getQuizById: function(id) {
+        return axios.get(`../api/quiz/getQuiz/${id}`)
     }
 
 };

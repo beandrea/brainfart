@@ -20,5 +20,7 @@ router.route("/userquiz/:id")
 router.route("/category/:category")
     .get(quizController.findQuizCategory)
 
+router.route("/getQuiz/:id")
+    .get(quizController.getUserQuizById)
 
 module.exports = router;

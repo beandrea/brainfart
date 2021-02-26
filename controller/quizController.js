@@ -50,5 +50,10 @@ module.exports = {
         db.deleteOne({_id: req.params.id})
         .then(dbModel => res.json(dbModel))
         .catch(err => console.log(err));
+    },
+    findQuizCategory: function (req, res) {
+        db.find({subject:req.params.category})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => console.log(err));
     }
 }

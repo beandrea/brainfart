@@ -17,4 +17,8 @@ router.route("/userquiz/:id")
     .delete(quizController.deleteUsersQuiz)
     .put(quizController.updateQuiz)
 
+router.route("/category/:category")
+    .get(quizController.findQuizCategory)
+
+
 module.exports = router;

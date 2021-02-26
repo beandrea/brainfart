@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from "../Card/Card"
 import "./category.css";
+import API from "../../utils/API"
 
 
-function CategoryComponent() {
+function CategoryComponent(props) {
+
+    const [quizData, setQuizData] = useState([])
+
+    useEffect(()=>{
+       API.getQuizByCategory(props.id).then(res => {
+            
+            let data = res.data.map((e) => {
+                return {
+                    id:e._id,
+                    title:e.title
+                }
+            })
+            setQuizData(data)
+        });
+    },[])
+    
     return (
         <div>
             <div className="jumbotron jumbotron-fluid">

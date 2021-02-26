@@ -2,9 +2,17 @@ import React, { useState, useEffect } from 'react';
 import CreateComponent from "../components/Create/CreateComponent";
 import API from "../utils/API"
 import { getUserId } from "../utils/firebase";
-import DropdownCst from "../components/DropdownCustom/DropdownCst";
 import './style/login.css';
 import isSignedIn from "../utils/isSignedIn";
+
+const items = [
+    {name:'Math', label:"Math"},
+    {name:"Computer Science", label:"Computer Science"},
+    {name:'History', label:"History"},
+    {name:'English', label:"English"},
+    {name:'Spanish', label:"Spanish"},
+    {name:'Geography', label:"Geography"},
+];
 
 function Create(props) {
     isSignedIn()
@@ -93,7 +101,11 @@ function Create(props) {
                 <div id="createdCard">
                     <div id="subject" className="overflow-visible">
                         <select id="createSubject">
-                            <option value="science">Science</option>
+                            {items.map(({label, name,...rest})=>(
+                                    <option value={name}>
+                                        {label}
+                                    </option>
+                            ))}
                         </select>
                     </div>
                     {Array.from(Array(numberOfElements).keys()).map((e, i) => {

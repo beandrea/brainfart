@@ -3,10 +3,11 @@ import CreateComponent from "../components/Create/CreateComponent";
 import API from "../utils/API"
 import { getUserId } from "../utils/firebase";
 import DropdownCst from "../components/DropdownCustom/DropdownCst";
-// import './style/login.css';
-import "./style/create.css"
+import './style/login.css';
+import isSignedIn from "../utils/isSignedIn";
 
 function Create(props) {
+    isSignedIn()
 
     const url = window.location.pathname;
 
@@ -17,10 +18,6 @@ function Create(props) {
             const quizData = props.location.state.quizObj;
             let questionsNum = quizData.questions.length;
 
-            console.log(questionsNum);
-            console.log(quizData);
-
-
             setNumberOfElements(questionsNum);
 
             setTimeout(function () {
@@ -29,8 +26,6 @@ function Create(props) {
 
                 for (let i = 0; i < questionsNum; i++) {
                     document.getElementById("createQuestion" + i).value = quizData.questions[i];
-
-                    console.log(quizData.questionAnswers);
 
                     for (let j = 0; j < quizData.questionAnswers[i].length; j++) {
                         document.getElementById("createAnswer" + (j + 1) + "" + i).value = quizData.questionAnswers[i][j];
@@ -76,7 +71,6 @@ function Create(props) {
             questionsArrayItem.correctAnswer.push(document.getElementById("createCorrectAnswer" + i).value);
 
         }
-        console.log(questionsArrayItem);
 
         if (url === "/update") {
             API.updateUserQuiz(props.location.state.id, questionsArrayItem);

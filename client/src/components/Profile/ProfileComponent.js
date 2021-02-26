@@ -48,27 +48,28 @@ function ProfileComponent() {
     }
 
     function lowestScore() {
-        let lowScoreArr = []
+        let lowScoreArr = [];
         if (scoreData === undefined) {
-            return 0
+            return 0;
         } else {
             for (let i = 0; i < scoreData.length; i++) {
-                lowScoreArr.push(scoreData[i].result)
+                lowScoreArr.push(scoreData[i].result);
             }
-            let lowest = Math.min(...lowScoreArr)
-            return lowest
+
+            let lowest = Math.min(...lowScoreArr);
+            return lowest;
         }
     }
 
     function highestName() {
-        let nameArr = []
+        let nameArr = [];
         if (scoreData === undefined) {
-            return "None"
+            return "None";
         } else {
             for (let i = 0; i < scoreData.length; i++) {
-                nameArr.push(scoreData[i])
+                nameArr.push(scoreData[i]);
             }
-            console.log(nameArr)
+            console.log(nameArr);
             for (let j = 0; j < nameArr.length; j++) {
                 if (highestScore() === nameArr[j].result) {
                     return nameArr[j].quizName.toUpperCase();

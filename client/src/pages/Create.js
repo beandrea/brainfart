@@ -92,7 +92,9 @@ function Create(props) {
                 <br />
                 <div id="createdCard">
                     <div id="subject" className="overflow-visible">
-                        <DropdownCst></DropdownCst>
+                        <select id="createSubject">
+                            <option value="science">Science</option>
+                        </select>
                     </div>
                     {Array.from(Array(numberOfElements).keys()).map((e, i) => {
                         return <CreateComponent
@@ -122,7 +124,7 @@ function Create(props) {
                 </div>
                 <br />
                 <div>
-                    <DropdownCst></DropdownCst>
+                    
                 </div>
                 <div id="createdCard">
                     {Array.from(Array(numberOfElements).keys()).map((e, i) => {

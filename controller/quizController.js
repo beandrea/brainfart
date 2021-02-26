@@ -55,5 +55,10 @@ module.exports = {
         db.find({subject:req.params.category})
         .then(dbModel => res.json(dbModel))
         .catch(err => console.log(err));
+    },
+    getUserQuizById: function(req, res) {
+        db.findById({_id:req.params.id})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => console.log(err));
     }
 }

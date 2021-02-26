@@ -3,6 +3,8 @@ import "./quiz.css";
 import API from "../../utils/API";
 import {getUserId} from "../../utils/firebase";
 
+let userQuiz = false
+
 function CompSci(props) {
     let reqParam
 
@@ -10,6 +12,7 @@ function CompSci(props) {
         console.log(props.id)
         reqParam = props.id
     } else {
+        userQuiz = true
         console.log(props.match.params.id)
         reqParam = props.match.params.id;
     }
@@ -18,7 +21,11 @@ function CompSci(props) {
     const correctChoice = [];
 
     useEffect(() => {
-        getQuizzes()
+        if (userQuiz === false) {
+            getQuizzes()
+        } else {
+            getUserQuiz()
+        }
     }, []);
 
     const decodeText = (text) => {
@@ -42,34 +49,47 @@ function CompSci(props) {
             console.log(res);
 
             if (res.data.length > 0) {
-                let quiz = res.data.map((obj) => {
-                    var answers = [obj.correct_answer, ...obj.incorrect_answers]
-                    var randomA = []
-                    for (let n = answers.length; n > 0; n--) {
-                        let i = Math.floor(Math.random() * answers.length)
-    
-                        let ans = decodeText(answers[i])
-    
-                        randomA.push(ans);
-                        answers.splice(i, 1)
-                    }
-
-                    let newObj = {
-                        question: decodeText(obj.question),
-                        answers: randomA,
-                        correctAnswer: decodeText(obj.correct_answer)
-                    };
-    
-                    return newObj;
-                });
-   
-                setCs(quiz);
+                sortQuizData(res.data)
             }
             else {
                 console.log("checking for user quiz");
                 ///check table for user quizes
             }
         });
+    }
+
+    function getUserQuiz () {
+        console.log(reqParam)
+        API.getQuizById(reqParam).then(res => {
+            console.log(res)
+            sortQuizData(res.data)
+
+        })
+    }
+
+    function sortQuizData(data) {
+        let quiz = data.map((obj) => {
+            var answers = [obj.correct_answer, ...obj.incorrect_answers]
+            var randomA = []
+            for (let n = answers.length; n > 0; n--) {
+                let i = Math.floor(Math.random() * answers.length)
+
+                let ans = decodeText(answers[i])
+
+                randomA.push(ans);
+                answers.splice(i, 1)
+            }
+
+            let newObj = {
+                question: decodeText(obj.question),
+                answers: randomA,
+                correctAnswer: decodeText(obj.correct_answer)
+            };
+
+            return newObj;
+        });
+
+        setCs(quiz);
     }
 
     cs.forEach(e => {

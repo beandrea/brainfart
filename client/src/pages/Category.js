@@ -9,7 +9,7 @@ const items = [
     {name:'English', label:"English"},
     {name:'Spanish', label:"Spanish"},
     {name:'Geography', label:"Geography"},
-]
+];
 
 function Category(){
     return(

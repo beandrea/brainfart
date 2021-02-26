@@ -1,9 +1,24 @@
 .createDiv {
-    margin-top: 100px;
+    margin-top: 120px;
     margin-bottom: 100px;
-    
 }
+
 
 #create{
     background-color: rgb(241, 236, 252);
 }
+
+
+#createTitle{
+    width: 300px;
+}
+
+#subQuizBtn{
+    position:relative;
+    float:right;
+}
+
+.questionInput{
+    width:400px;
+}
+

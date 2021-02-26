@@ -136,7 +136,8 @@ function Create(props) {
                 </div>
                 <br />
                 <div>
-                    
+                    <h3>Subject:</h3>
+                    <input id="createSubject" readOnly></input>
                 </div>
                 <div id="createdCard">
                     {Array.from(Array(numberOfElements).keys()).map((e, i) => {

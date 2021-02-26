@@ -27,7 +27,8 @@ function MyQuiz(props) {
         <div>
             {props.theQuiz.map(quiz => (
                 <div key={quiz._id} id="created" className="card-body background">
-                    <h6 className="quizName">Quiz Name: {quiz.title}</h6>
+                    <h6 className="quizName">My Quiz Name: {quiz.title}</h6>
+                    <strong>Subject: {quiz.subject}</strong>
                     <div id="btns">
                         <button value={quiz._id} className="btn btn-outline-success createdBtns" onClick={deleteUserQuiz}>Delete</button>
                         <button value={quiz._id} className="btn btn-outline-warning createdBtns" onClick={editUserQuiz}>Edit</button>

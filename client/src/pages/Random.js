@@ -51,6 +51,7 @@ function Random(props) {
         let quizObj =[]
             for (let i = 0; i < data.questions.length; i++) {
                 quizObj.push({
+                    subject: data.subject,
                     question:  data.questions[i],
                     correct_answer: data.correctAnswer[i],
                     incorrect_answers: data.questionAnswers[i]
@@ -73,9 +74,10 @@ function Random(props) {
                 answers.splice(i, 1)
             }
             let newObj = {
+                subject: obj.subject,
                 question: decodeText(obj.question),
                 answers: randomA,
-                correctAnswer: decodeText(obj.correctAnswer)
+                correctAnswer: decodeText(obj.correct_answer)
             }
     
             return newObj
@@ -107,7 +109,7 @@ function Random(props) {
                 score += 10;
             }
         }
-        API.submitQuiz(score, reqParam, getUserId());
+        API.submitQuiz(score, userQuiz[0].subject, getUserId());
 
         setTimeout(function () { window.location.href = "/results" }, 1500);
     }

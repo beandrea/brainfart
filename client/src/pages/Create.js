@@ -6,7 +6,7 @@ import './style/login.css';
 import isSignedIn from "../utils/isSignedIn";
 
 const items = [
-    {name:'Math', label:"Math"},
+    {name:'Science', label:"Science"},
     {name:"Computer Science", label:"Computer Science"},
     {name:'History', label:"History"},
     {name:'English', label:"English"},

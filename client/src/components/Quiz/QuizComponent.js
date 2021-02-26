@@ -62,8 +62,16 @@ function CompSci(props) {
         console.log(reqParam)
         API.getQuizById(reqParam).then(res => {
             console.log(res)
-            sortQuizData(res.data)
-
+            let quizObj =[]
+            for (let i = 0; i < res.data.questions.length; i++) {
+                quizObj.push({
+                    question:  res.data.questions[i],
+                    correct_answer: res.data.correctAnswer[i],
+                    incorrect_answers: res.data.questionAnswers[i]
+                })
+            }
+            console.log(quizObj)
+            sortQuizData(quizObj)
         })
     }
 
@@ -91,6 +99,9 @@ function CompSci(props) {
 
         setCs(quiz);
     }
+
+
+
 
     cs.forEach(e => {
         correctChoice.push(false);

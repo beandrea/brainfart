@@ -12,7 +12,8 @@ function CreateComponent(props) {
                     
                     <div>
                         <h3>Question:</h3>
-                        <input id={"createQuestion" + props.id}></input>
+                        <input className="questionInput"
+                        id={"createQuestion" + props.id}></input>
                     </div>
                     <div>
                         <h4>Answer 1:</h4>
@@ -35,7 +36,11 @@ function CreateComponent(props) {
                     </div> */}
                 </div>
             </div>
+            <div>
+                <br/>
+            </div>
         </div>
+        
     )
 }
 

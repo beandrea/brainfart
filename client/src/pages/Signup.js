@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../utils/firebase";
-import "./style/login.css";
+import "./style/signup.css";
 import axios from "axios"
 
 const SignUp = () => {
@@ -15,9 +15,9 @@ const SignUp = () => {
     let userInfo = {}
     event.preventDefault();
     try {
-      userInfo  = await auth.createUserWithEmailAndPassword(email, password);
+      userInfo = await auth.createUserWithEmailAndPassword(email, password);
       // generateUserDocument(user, {displayName});
-    
+
       const newUser = { email: userInfo.user.email, firebaseId: userInfo.user.uid };
       return axios.post("/api/user/", newUser)
     }
@@ -26,7 +26,7 @@ const SignUp = () => {
       setError('Error Signing up with email and password');
     }
     finally {
-      if(userInfo.user.uid) {
+      if (userInfo.user.uid) {
         window.location.href = "/"
       }
     }
@@ -50,15 +50,20 @@ const SignUp = () => {
   };
 
   return (
-    <div className="mt-8 loginDiv">
-      <h1 className="text-3xl mb-2 text-center font-bold">Sign Up</h1>
-      <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
+    <div className="loginDiv mt-8">
+      {/* <h1 className="text-3xl mb-2 text-center font-bold">Sign Up</h1> */}
+      <div className="mx-auto w-11/12 md:w-2/4 py-8 px-4 md:px-8 form-container"
+        // className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8"
+        id="SignUpCard">
         {error !== null && (
           <div className="py-4 bg-red-600 w-full text-white text-center mb-3">
             {error}
           </div>
         )}
         <form className="formStyle">
+          <br />
+          <h1 className="text-3xl mb-2 text-center font-bold">Sign Up</h1>
+          <br />
           <div className="formInput">
             <label htmlFor="userEmail" className="formLabel">
               Email:

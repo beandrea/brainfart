@@ -47,5 +47,9 @@ export default {
     },
     updateUserQuiz: function(id, data) {
         return axios.put(`../api/quiz/userQuiz/${id}`, data);
+    },
+    getQuizByCategory: function(category) {
+        return axios.get(`../api/quiz/category/${category}`)
     }
+
 };

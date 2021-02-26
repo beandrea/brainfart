@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import CreateComponent from "../components/Create/CreateComponent";
 import API from "../utils/API"
 import { getUserId } from "../utils/firebase";
-import DropdownCst from "../components/DropdownCustom/DropdownCst";
 import './style/login.css';
 import isSignedIn from "../utils/isSignedIn";
 

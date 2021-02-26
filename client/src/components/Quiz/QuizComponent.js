@@ -4,7 +4,16 @@ import API from "../../utils/API";
 import {getUserId} from "../../utils/firebase";
 
 function CompSci(props) {
-    const reqParam = props.match.params.id;
+    let reqParam
+
+    if(props.match === undefined) {
+        console.log(props.id)
+        reqParam = props.id
+    } else {
+        console.log(props.match.params.id)
+        reqParam = props.match.params.id;
+    }
+    
     const [cs, setCs] = useState([]);
     const correctChoice = [];
 

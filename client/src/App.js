@@ -10,6 +10,7 @@ import Footer from "./components/Footer/Footer";
 import Quiz from './components/Quiz/QuizComponent';
 import Create from './pages/Create';
 import Results from './components/QuizResults/results';
+import Random from "./pages/Random";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route exact path= "/create" component={Create}/>
             <Route exact path= "/update" component={Create}/>
             <Route exact path="/results" component={Results}/>
+            <Route exact path="/random" component={Random}/>
           </Switch>
         </div>
       </Router>

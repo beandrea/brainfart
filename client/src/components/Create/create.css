@@ -3,7 +3,6 @@
     margin-bottom: 100px;
 }
 
-
 #create{
     background-color: rgb(241, 236, 252);
 }
@@ -22,3 +21,7 @@
     width:400px;
 }
 
+.question-card {
+    border: 1px solid black !important;
+    margin-top: 25px;
+}

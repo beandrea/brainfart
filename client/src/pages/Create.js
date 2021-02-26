@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CreateComponent from "../components/Create/CreateComponent";
 import API from "../utils/API"
 import { getUserId } from "../utils/firebase";
-import './style/login.css';
+import './style/create.css';
 import isSignedIn from "../utils/isSignedIn";
 
 const items = [
@@ -94,13 +94,15 @@ function Create(props) {
                 <div className="card" id="titleCard">
                 <div className="mx-auto" id="title-div">
                     <h3>Title:</h3>
-                    <input id={"createTitle"}></input>
+                    <div className="titleBorder">
+                        <input className="titleInput" id={"createTitle"}></input>
+                    </div>
                 </div>
                 </div>
                 <br />
                 <div id="createdCard">
                     <div id="subject" className="overflow-visible">
-                        <select id="createSubject">
+                        <select id="createSubject" className="selector">
                             {items.map(({label, name,...rest})=>(
                                     <option value={name}>
                                         {label}

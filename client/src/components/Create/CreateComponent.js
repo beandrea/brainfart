@@ -7,8 +7,8 @@ function CreateComponent(props) {
 
     return (
         <div className="createMainDiv">
-            <div className="card" id={"create" + props.id}>
-                <div className="card-body">
+            <div className="card question-card" id={"create" + props.id}>
+                <div className="card-body ">
                     
                     <div>
                         <h3>Question:</h3>

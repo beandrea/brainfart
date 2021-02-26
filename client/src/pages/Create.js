@@ -4,8 +4,10 @@ import API from "../utils/API"
 import { getUserId } from "../utils/firebase";
 import DropdownCst from "../components/DropdownCustom/DropdownCst";
 import './style/login.css';
+import isSignedIn from "../utils/isSignedIn";
 
 function Create(props) {
+    isSignedIn()
 
     const url = window.location.pathname;
 

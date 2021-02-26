@@ -18,10 +18,6 @@ function Create(props) {
             const quizData = props.location.state.quizObj;
             let questionsNum = quizData.questions.length;
 
-            console.log(questionsNum);
-            console.log(quizData);
-
-
             setNumberOfElements(questionsNum);
 
             setTimeout(function () {
@@ -30,8 +26,6 @@ function Create(props) {
 
                 for (let i = 0; i < questionsNum; i++) {
                     document.getElementById("createQuestion" + i).value = quizData.questions[i];
-
-                    console.log(quizData.questionAnswers);
 
                     for (let j = 0; j < quizData.questionAnswers[i].length; j++) {
                         document.getElementById("createAnswer" + (j + 1) + "" + i).value = quizData.questionAnswers[i][j];
@@ -77,7 +71,6 @@ function Create(props) {
             questionsArrayItem.correctAnswer.push(document.getElementById("createCorrectAnswer" + i).value);
 
         }
-        console.log(questionsArrayItem);
 
         if (url === "/update") {
             API.updateUserQuiz(props.location.state.id, questionsArrayItem);
@@ -88,10 +81,13 @@ function Create(props) {
 
     if (url === "/create") {
         return (
+            <div className="container">
             <div className="createDiv">
+                <div className="card" id="titleCard">
                 <div className="mx-auto" id="title-div">
                     <h3>Title:</h3>
                     <input id={"createTitle"}></input>
+                </div>
                 </div>
                 <br />
                 <div id="createdCard">
@@ -105,16 +101,24 @@ function Create(props) {
                         />
                     })}
                 </div>
-                <button onClick={addQuestion}>Add New Question</button>
-                <button onClick={submitQuiz}>Submit Quiz</button>
+                <br/>
+                <button className="btn btn-primary"
+                onClick={addQuestion}>Add New Question</button>
+                <button className="btn btn-danger"
+                id="subQuizBtn"
+                onClick={submitQuiz}>Submit Quiz</button>
+            </div>
             </div>
         );
     } else {
         return (
+            <div className="container">
             <div className="createDiv">
+            <div className="card" id="titleCard">
                 <div className="mx-auto" id="title-div">
                     <h3>Title:</h3>
                     <input id={"createTitle"}></input>
+                </div>
                 </div>
                 <br />
                 <div>
@@ -128,8 +132,13 @@ function Create(props) {
                         />
                     })}
                 </div>
-                <button onClick={addQuestion}>Add New Question</button>
-                <button onClick={submitQuiz}>Update Quiz</button>
+                <br/>
+                <button className="btn btn-primary"
+                onClick={addQuestion}>Add New Question</button>
+                <button className="btn btn-danger"
+                id="subQuizBtn"
+                onClick={submitQuiz}>Update Quiz</button>
+            </div>
             </div>
 
         );

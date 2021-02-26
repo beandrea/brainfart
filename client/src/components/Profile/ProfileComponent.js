@@ -102,7 +102,7 @@ function ProfileComponent() {
                     <div id="usernameCard" className="card-body">
                         <div id="usernameDisplay">Username: {theUser.email}</div>
                     </div>
-                    <img id="profilePic" src="https://smhlancers.org/wp-content/uploads/2016/06/profile-placeholder.png" alt="profilepic"></img>
+                    <img id="profilePic" src="https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fblogs-images.forbes.com%2Frainerzitelmann%2Ffiles%2F2019%2F06%2FE0MG76-e1560965378507-1200x1270.jpg" alt="profilepic"></img>
                 </div>
             </div>
             <div id="userInfoDiv" className="card">
@@ -129,12 +129,6 @@ function ProfileComponent() {
                         theQuiz={theQuiz}
                     />
                 </div>
-                {/* <div className="card infoCards">
-                    <h5>My Previous Quizes</h5>
-                    <div className="card-body background">
-                        <h6 className="quizName">Quiz Name: { }</h6>
-                    </div>
-                </div> */}
             </div>
         </div>
     )

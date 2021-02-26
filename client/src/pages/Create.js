@@ -3,7 +3,8 @@ import CreateComponent from "../components/Create/CreateComponent";
 import API from "../utils/API"
 import { getUserId } from "../utils/firebase";
 import DropdownCst from "../components/DropdownCustom/DropdownCst";
-import './style/login.css';
+// import './style/login.css';
+import "./style/create.css"
 
 function Create(props) {
 
@@ -88,9 +89,11 @@ function Create(props) {
         return (
             <div className="container">
             <div className="createDiv">
+                <div className="card" id="titleCard">
                 <div className="mx-auto" id="title-div">
                     <h3>Title:</h3>
                     <input id={"createTitle"}></input>
+                </div>
                 </div>
                 <br />
                 <div id="createdCard">
@@ -104,9 +107,11 @@ function Create(props) {
                         />
                     })}
                 </div>
+                <br/>
                 <button className="btn btn-primary"
                 onClick={addQuestion}>Add New Question</button>
                 <button className="btn btn-danger"
+                id="subQuizBtn"
                 onClick={submitQuiz}>Submit Quiz</button>
             </div>
             </div>
@@ -115,9 +120,11 @@ function Create(props) {
         return (
             <div className="container">
             <div className="createDiv">
+            <div className="card" id="titleCard">
                 <div className="mx-auto" id="title-div">
                     <h3>Title:</h3>
                     <input id={"createTitle"}></input>
+                </div>
                 </div>
                 <br />
                 <div>
@@ -131,9 +138,11 @@ function Create(props) {
                         />
                     })}
                 </div>
+                <br/>
                 <button className="btn btn-primary"
                 onClick={addQuestion}>Add New Question</button>
                 <button className="btn btn-danger"
+                id="subQuizBtn"
                 onClick={submitQuiz}>Update Quiz</button>
             </div>
             </div>

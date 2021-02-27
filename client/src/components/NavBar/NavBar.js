@@ -35,12 +35,6 @@ function NavBar() {
                         <PowerIcon />
                     </span> </button>
                 </li>
-                <li className="nav-item" title="Search" id="searchBar">
-                    <form>
-                        <input style={{borderRadius:"10px"}} type="search" placeholder="Search"></input>
-                        <button className="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </li>
             </ul>
         </div>
     )

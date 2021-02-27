@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 
+require("dotenv").config();
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 const apiRoutes = require("./routes");
@@ -15,16 +17,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to the Mongo DB
-
-// mongoose.connect(
-//   process.env.MONGODB_URI || "mongodb+srv://andrea:Password@cluster0.ndwih.mongodb.net/user?retryWrites=true&w=majority",
-//   {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true, 
-//     useCreateIndex: true, 
-//     useFindAndModify: false
-//   }
-// );
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user",
   {

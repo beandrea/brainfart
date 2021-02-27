@@ -26,8 +26,13 @@ if (process.env.NODE_ENV === "production") {
 //   }
 // );
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user", {useNewUrlParser: true,
-  useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user", 
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true, 
+    useCreateIndex: true, 
+    useFindAndModify: false
+  });
 
 // Use apiRoutes
 app.use(apiRoutes);
@@ -36,7 +41,7 @@ app.use(apiRoutes);
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 app.listen(PORT, function() {

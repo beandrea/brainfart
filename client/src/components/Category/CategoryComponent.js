@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 
 function CategoryComponent(props) {
 
-    const [quizData, setQuizData] = useState([])
+    const [quizData, setQuizData] = useState([]);
 
     useEffect(()=>{
        API.getQuizByCategory(props.id).then(res => {
@@ -17,8 +17,9 @@ function CategoryComponent(props) {
                     id:e._id,
                     title:e.title
                 }
-            })
-            setQuizData(data)
+            });
+
+            setQuizData(data);
         });
     },[])
 
@@ -45,4 +46,4 @@ function CategoryComponent(props) {
     )
 }
 
-export default CategoryComponent
+export default CategoryComponent;

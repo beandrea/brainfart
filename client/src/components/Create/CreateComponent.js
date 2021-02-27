@@ -44,4 +44,4 @@ function CreateComponent(props) {
     )
 }
 
-export default CreateComponent
+export default CreateComponent;

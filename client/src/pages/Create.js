@@ -124,7 +124,7 @@ function Create(props) {
                 </button>
                 <Link to="/profile">
                     <button className="btn btn-danger" id="subQuizBtn" onClick={submitQuiz}>
-                        Submit Quiz
+                        Submit Quiz and Questions
                     </button>
                 </Link>
             </div>

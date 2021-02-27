@@ -30,7 +30,7 @@ function HomeComponent() {
                         <Link to = "/category/sports"><Card image = {images[4].image} title = {"sports"}/> </Link>
                         <Link to = "/category/mythology"><Card image = {images[5].image} title = {"mythology"}/></Link>
                         <Link to = "/category/geography"><Card image = {images[6].image} title = {"Geography"}/></Link>
-                        <Link to = "/random"><Card image = {images[6].image} title = {"Take A Random Quiz From a User"}/></Link>
+                        <Link to = "/random"><Card image = {images[7].image} title = {"Take A Random Quiz From a User"}/></Link>
                     </div>
                 </div>
             </div>

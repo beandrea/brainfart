@@ -27,6 +27,9 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
+  "engines": {
+    "node": "14.15.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/beandrea/brainfart.git"

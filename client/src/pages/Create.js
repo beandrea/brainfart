@@ -4,6 +4,7 @@ import API from "../utils/API"
 import { getUserId } from "../utils/firebase";
 import './style/create.css';
 import isSignedIn from "../utils/isSignedIn";
+import { Link } from 'react-router-dom';
 
 const items = [
     {name:'Science', label:"Science"},
@@ -118,11 +119,14 @@ function Create(props) {
                     })}
                 </div>
                 <br/>
-                <button className="btn btn-primary"
-                onClick={addQuestion}>Add New Question</button>
-                <button className="btn btn-danger"
-                id="subQuizBtn"
-                onClick={submitQuiz}>Submit Quiz</button>
+                <button className="btn btn-primary" onClick={addQuestion}>
+                    Add New Question
+                </button>
+                <Link to="/profile">
+                    <button className="btn btn-danger" id="subQuizBtn" onClick={submitQuiz}>
+                        Submit Quiz
+                    </button>
+                </Link>
             </div>
             </div>
         );

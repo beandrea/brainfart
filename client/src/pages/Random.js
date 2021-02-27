@@ -8,7 +8,7 @@ function Random(props) {
 
     const [userQuiz, setUserQuiz] = useState([])
     const correctChoice = [];
-    let reqParam = props.id
+    let reqParam = props.id;
 
     const decodeText = (text) => {
         if (!text || !text.replace) {
@@ -29,63 +29,64 @@ function Random(props) {
     useEffect(() => {
         UserInfo()
         // console.log(userQuiz)
-    }, [])
+    }, []);
 
     function UserInfo() {
         API.getTheUserQuizes(getUserId()).then(res => {
-            console.log(res.data)
+            console.log(res.data);
 
             if (res.data.length > 0) {
-                let quizIndex = Math.floor(Math.random() * res.data.length)
-                console.log(res.data[quizIndex])
-                initalizeQuizData(res.data[quizIndex])
+                let quizIndex = Math.floor(Math.random() * res.data.length);
+                console.log(res.data[quizIndex]);
+                initalizeQuizData(res.data[quizIndex]);
             }
             else {
-                console.log("checking for user quiz")
+                console.log("checking for user quiz");
                 ///check table for user quizes
             }
         });
     }
 
     function initalizeQuizData (data) {
-        let quizObj =[]
-            for (let i = 0; i < data.questions.length; i++) {
-                quizObj.push({
-                    subject: data.subject,
-                    question:  data.questions[i],
-                    correct_answer: data.correctAnswer[i],
-                    incorrect_answers: data.questionAnswers[i]
-                })
-            }
-            console.log(quizObj)
-            sortQuizData(quizObj)
+        let quizObj =[];
+        for (let i = 0; i < data.questions.length; i++) {
+            quizObj.push({
+                subject: data.subject,
+                question:  data.questions[i],
+                correct_answer: data.correctAnswer[i],
+                incorrect_answers: data.questionAnswers[i]
+            });
+        }
+        console.log(quizObj);
+        sortQuizData(quizObj);
     }
 
     function sortQuizData(data)  {
         let quiz = data.map((obj) => {
-            var answers = [obj.correct_answer, ...obj.incorrect_answers]
-            var randomA = []
+            var answers = [obj.correct_answer, ...obj.incorrect_answers];
+            var randomA = [];
             for (let n = answers.length; n > 0; n--) {
-                let i = Math.floor(Math.random() * answers.length)
+                let i = Math.floor(Math.random() * answers.length);
     
-                let ans = decodeText(answers[i])
+                let ans = decodeText(answers[i]);
     
                 randomA.push(ans);
-                answers.splice(i, 1)
+                answers.splice(i, 1);
             }
+
             let newObj = {
                 subject: obj.subject,
                 question: decodeText(obj.question),
                 answers: randomA,
                 correctAnswer: decodeText(obj.correct_answer)
-            }
+            };
     
-            return newObj
+            return newObj;
         })
     
-        console.log(quiz)
+        console.log(quiz);
     
-        setUserQuiz(quiz)
+        setUserQuiz(quiz);
     }
 
     userQuiz.forEach(e => {
@@ -141,4 +142,4 @@ function Random(props) {
     )
 }
 
-export default Random
+export default Random;

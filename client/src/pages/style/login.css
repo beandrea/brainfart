@@ -34,3 +34,15 @@
     background-color: rgb(217, 197, 253);
     border-radius: 15px;
 }
+
+@media screen and (max-width: 524px) {
+    .form-container {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .formInput {
+        width: 200px;
+    }
+  }
+  
